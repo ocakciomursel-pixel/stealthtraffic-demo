@@ -483,6 +483,75 @@ $('btnNewCampaign').addEventListener('click', () => {
   $('modalCampaign').classList.remove('hidden');
 });
 
+$('btnBulkCampaign')?.addEventListener('click', () => {
+  if (!$('bulkDomainsInput').value.trim()) {
+    $('bulkDomainsInput').value = [
+      'eticaret-proje.com.tr | özel e-ticaret paketi, kurumsal seo danışmanlığı',
+      'haber-portali.net | son dakika ekonomi, güncel teknoloji haberleri',
+      'hukuk-danismanlik.org | istanbul bilişim avukatı, şirket danışmanlığı'
+    ].join('\n');
+  }
+  $('modalBulkCampaign').classList.remove('hidden');
+});
+
+$('btnSubmitBulkCampaign')?.addEventListener('click', () => {
+  const lines = $('bulkDomainsInput').value.trim().split('\n').map(s => s.trim()).filter(Boolean);
+  if (!lines.length) return toast('Lütfen satır satır domain | kelime1, kelime2 listesini girin.', true);
+  const mode = $('bulkMode').value;
+  const visits = Number($('bulkVisits').value) || 150;
+  const concurrency = Number($('bulkConcurrency').value) || 2;
+  const dMin = Number($('bulkDwellMin').value) || 35;
+  const dMax = Number($('bulkDwellMax').value) || 75;
+  const autoStart = $('bulkAutoStart').checked;
+  let added = 0;
+
+  lines.forEach((line) => {
+    const [rawDom, rawKws = ''] = line.split(/[|;]/);
+    const dom = (rawDom || '').trim().replace(/^https?:\/\//i, '').split('/')[0];
+    if (!dom) return;
+    const kws = rawKws.split(',').map(k => k.trim()).filter(Boolean);
+    const id = 'CMP-' + Math.floor(200 + Math.random() * 790);
+    appState.campaigns.unshift({
+      id,
+      name: `Toplu: ${dom}` + (kws.length ? ` (${kws.length} kelime)` : ''),
+      mode: kws.length ? mode : 'direct',
+      targetDomain: dom,
+      brandName: dom.split('.')[0],
+      targetUrls: ['https://' + dom + '/'],
+      keywords: kws,
+      referrers: ['https://www.google.com.tr/'],
+      targetVisits: visits,
+      completedVisits: 0,
+      verifiedGaHits: 0,
+      concurrency,
+      mobileRatio: 75,
+      dwellMinSec: dMin,
+      dwellMaxSec: dMax,
+      subpagesMin: 1,
+      subpagesMax: 3,
+      status: autoStart ? 'running' : 'paused'
+    });
+    if (autoStart) {
+      appState.runtime.runningCampaignIds.push(id);
+      const wid = 'W-' + Math.floor(10 + Math.random() * 89);
+      const dev = DEVICE_POOL[Math.floor(Math.random() * DEVICE_POOL.length)];
+      appState.runtime.activeWorkers.unshift({
+        id: wid,
+        type: mode,
+        step: kws.length ? `Google SERP -> "${kws[0]}" aranıyor -> ${dom} hedeflendi` : `${dom} sıcak çerez ile açıldı`,
+        device: dev.label.split('•')[0].trim() + ' (CK-94A2)',
+        proxy: '31.145.92.104 (4.5G TR)'
+      });
+      appendLog({ time: nowTime(), worker: wid, level: 'success', message: `Toplu görev başlatıldı -> ${dom} (${kws.join(', ') || 'Direkt GA4'})` });
+    }
+    added++;
+  });
+
+  $('modalBulkCampaign').classList.add('hidden');
+  renderSnapshot();
+  toast(`${added} farklı domain ve özel kelime havuzu aynı anda başlatıldı!`);
+});
+
 $('btnSaveCampaign').addEventListener('click', () => {
   const domain = $('campDomain').value.trim() || 'yeni-hedefsite.com';
   const id = $('campId').value || ('CMP-' + Math.floor(103 + Math.random() * 890));

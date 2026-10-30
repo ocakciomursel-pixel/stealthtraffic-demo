@@ -10,7 +10,7 @@
   <div class="app-shell">
     <div class="live-demo-ribbon">
       <div>
-        <strong>🟢 CANLI İNTERAKTİF YÖNETİM PANELİ DEMOSU</strong> &mdash; Tüm sekmeleri, otomatik çerez üretimini ve <em>⚡ Hızlı Canlı Demo Başlat</em> simülasyonunu hemen test edebilirsiniz. Kendi sitenizin <strong>Google Analytics 4 (Anlık)</strong> ekranına gerçek canlı hit testi için bize yazın:
+        <strong>🟢 CANLI İNTERAKTİF YÖNETİM PANELİ DEMOSU</strong> &mdash; Tüm sekmeleri, <strong>+ Toplu Domain &amp; Kelime Aktar</strong> modülünü, otomatik çerez üretimini ve <em>⚡ Hızlı Canlı Demo Başlat</em> akışını hemen test edebilirsiniz:
       </div>
       <div style="display:flex;gap:8px;align-items:center;">
         <a class="wa-cta" href="https://wa.me/905017037004?text=Merhaba%2C%20StealthTraffic%20Pro%20canl%C4%B1%20GA4%20hit%20demosu%20i%C3%A7in%20yaz%C4%B1yorum" target="_blank" rel="noopener">WhatsApp: +90 501 703 70 04</a>
@@ -88,7 +88,10 @@
           <div class="panel-card" id="activeWorkersCard">
             <div class="card-header">
               <h2>Anlık Çalışan Stealth Tarayıcı Oturumları (<span id="activeWorkerCountBadge">0</span>)</h2>
-              <button class="btn btn-secondary btn-sm" id="btnNewCampaign">+ Yeni Kampanya Oluştur</button>
+              <div class="btn-row">
+                <button class="btn btn-primary btn-sm" id="btnBulkCampaign">+ Toplu Domain &amp; Kelime Aktar</button>
+                <button class="btn btn-secondary btn-sm" id="btnNewCampaign">+ Yeni Kampanya Oluştur</button>
+              </div>
             </div>
             <div id="activeWorkersList" class="workers-grid">
               <div class="empty-hint">Şu anda aktif çalışan oturum yok. Aşağıdan bir kampanya başlatabilir veya sağ üstten <strong>Hızlı Canlı Demo</strong> gönderebilirsiniz.</div>
@@ -495,6 +498,57 @@ https://www.youtube.com/</textarea>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-close="modalCookieImport">İptal</button>
         <button class="btn btn-primary" id="btnSubmitCookieImport">Havuza Aktar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: BULK MULTI-DOMAIN & KEYWORD MATRIX IMPORT -->
+  <div class="modal-backdrop hidden" id="modalBulkCampaign">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3>🚀 Toplu Domain &amp; Her Domaine Özel Farklı Kelime Listesi Aktar</h3>
+        <button class="close-btn" data-close="modalBulkCampaign">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="card-desc">Her satıra <code>domain.com | kelime 1, kelime 2, kelime 3</code> formatında istediğiniz kadar farklı site ve her siteye özel anahtar kelimeleri yapıştırın. Motor her domaini kendi kelime havuzuyla ayrı sıcak çerez profilleri üzerinden paralel çalıştırır.</p>
+        <div class="field">
+          <label>Toplu Domain &amp; Kelime Listesi (Her Satır Ayrı Domain) *</label>
+          <textarea id="bulkDomainsInput" rows="7" placeholder="ornek-site1.com | istanbul web tasarım, kurumsal seo hizmeti&#10;ikincisite.net | ankara nakliyat firması, evden eve taşımacılık&#10;ucuncudomain.org | özel yazılım geliştirme, mobil uygulama ajansı"></textarea>
+        </div>
+        <div class="form-grid-2 mt-10">
+          <div class="field">
+            <label>Gönderim Modu</label>
+            <select id="bulkMode">
+              <option value="serp">Google Organik SERP Arama &amp; Tıklama</option>
+              <option value="branded">Markalı Autocomplete &amp; Arama</option>
+              <option value="referrer">Sosyal / Google Referrer Girişi</option>
+              <option value="direct">Direkt &amp; Anlık GA4 Ziyaretçi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Domain Başına Hedef Hit</label>
+            <input type="number" id="bulkVisits" value="150" min="1" max="50000" />
+          </div>
+          <div class="field">
+            <label>Domain Başına Eşzamanlı Thread</label>
+            <input type="number" id="bulkConcurrency" value="2" min="1" max="8" />
+          </div>
+          <div class="field">
+            <label>Sitede Kalma Aralığı (Min - Max Sn)</label>
+            <div style="display:flex;gap:8px;">
+              <input type="number" id="bulkDwellMin" value="35" min="5" max="300" />
+              <input type="number" id="bulkDwellMax" value="75" min="10" max="600" />
+            </div>
+          </div>
+        </div>
+        <div class="checkbox-group mt-10">
+          <label><input type="checkbox" id="bulkAutoStart" checked /> İçe Aktarır Aktarmaz Tüm Domainleri Eşzamanlı Başlat</label>
+          <label><input type="checkbox" id="bulkUseProxies" checked /> Proxy Havuzunu &amp; Otomatik Sıcak Çerez (Cookie) Havuzunu Kullan</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close="modalBulkCampaign">İptal</button>
+        <button class="btn btn-primary" id="btnSubmitBulkCampaign">Toplu Kampanyaları Oluştur &amp; Başlat</button>
       </div>
     </div>
   </div>
