@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StealthTraffic Pro — Hafifletilmiş Gerçek Tarayıcı & Otomatik Çerez Havuzu</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="live-demo-ribbon">
+      <div>
+        <strong>🟢 CANLI İNTERAKTİF YÖNETİM PANELİ DEMOSU</strong> &mdash; Tüm sekmeleri, otomatik çerez üretimini ve <em>⚡ Hızlı Canlı Demo Başlat</em> simülasyonunu hemen test edebilirsiniz. Kendi sitenizin <strong>Google Analytics 4 (Anlık)</strong> ekranına gerçek canlı hit testi için bize yazın:
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <a class="wa-cta" href="https://wa.me/905017037004?text=Merhaba%2C%20StealthTraffic%20Pro%20canl%C4%B1%20GA4%20hit%20demosu%20i%C3%A7in%20yaz%C4%B1yorum" target="_blank" rel="noopener">WhatsApp: +90 501 703 70 04</a>
+        <a href="https://o2io.com.tr" target="_blank" rel="noopener" style="color:#93c5fd;font-weight:600;text-decoration:none;font-size:12.5px;">o2io.com.tr ↗</a>
+      </div>
+    </div>
+    <!-- TOP HEADER -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">ST</div>
+        <div>
+          <h1>StealthTraffic Pro <span class="ver-badge">v2.4 Açık Kaynak</span></h1>
+          <p class="subtitle">Sıfır CDP Sızıntılı Hafifletilmiş Gerçek Tarayıcı &bull; Dahili Otomatik Çerez (Cookie) Üretim Havuzu</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <div class="engine-pill" id="browserStatusPill">
+          <span class="dot dot-ok"></span>
+          <span id="browserStatusText">Tarayıcı Motoru Kontrol Ediliyor...</span>
+        </div>
+        <button class="btn btn-primary" id="btnOpenQuickDemo">⚡ Hızlı Canlı Demo Başlat</button>
+      </div>
+    </header>
+
+    <!-- KPI SUMMARY STRIP -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Başarılı Ziyaret / Oturum</div>
+        <div class="kpi-value" id="kpiSuccess">0</div>
+        <div class="kpi-sub"><span id="kpiSubpages">0</span> alt sayfa gezinmesi &bull; Ort. <span id="kpiAvgDwell">0</span> sn</div>
+      </div>
+      <div class="kpi-card kpi-emerald">
+        <div class="kpi-label">Doğrulanan GA4 / Analytics Ping</div>
+        <div class="kpi-value" id="kpiGaHits">0</div>
+        <div class="kpi-sub">Gerçek JS (`gtag.js` / `collect`) sinyali</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Aktif Eşzamanlı Oturum</div>
+        <div class="kpi-value" id="kpiActiveWorkers">0</div>
+        <div class="kpi-sub"><span id="kpiSerpClicks">0</span> SERP tık &bull; <span id="kpiBranded">0</span> markalı arama</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Isınmış Çerez (Cookie) Havuzu</div>
+        <div class="kpi-value" id="kpiCookiePool">0</div>
+        <div class="kpi-sub"><span id="kpiCookieGa">0</span> `_ga` &bull; <span id="kpiCookieGoogle">0</span> Google &bull; Ort. Skor: <span id="kpiCookieScore">0</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Hafif Mod Medya Tasarrufu</div>
+        <div class="kpi-value" id="kpiSavedMb">0 MB</div>
+        <div class="kpi-sub"><span id="kpiBlockedReq">0</span> ağır görsel/video/font engellendi</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Proxy Havuzu Sağlığı</div>
+        <div class="kpi-value" id="kpiProxies">0 / 0</div>
+        <div class="kpi-sub">Aktif / Toplam kayıtlı proxy</div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="tabs-bar">
+      <button class="tab-btn active" data-tab="tab-campaigns">Kampanyalar & Canlı Oturumlar</button>
+      <button class="tab-btn" data-tab="tab-cookies">Otomatik Çerez (Cookie) Havuzu</button>
+      <button class="tab-btn" data-tab="tab-proxies">Proxy & Mobil IP Yenileme</button>
+      <button class="tab-btn" data-tab="tab-settings">Saatlik Zamanlayıcı & Ayarlar</button>
+      <div class="tabs-spacer"></div>
+      <button class="btn btn-ghost btn-sm" id="btnResetStats">İstatistikleri Sıfırla</button>
+    </nav>
+
+    <!-- MAIN WORKSPACE GRID -->
+    <div class="workspace-grid">
+      <main class="main-panel">
+        <!-- TAB 1: CAMPAIGNS -->
+        <section class="tab-pane active" id="tab-campaigns">
+          <!-- Active Workers Live Strip -->
+          <div class="panel-card" id="activeWorkersCard">
+            <div class="card-header">
+              <h2>Anlık Çalışan Stealth Tarayıcı Oturumları (<span id="activeWorkerCountBadge">0</span>)</h2>
+              <button class="btn btn-secondary btn-sm" id="btnNewCampaign">+ Yeni Kampanya Oluştur</button>
+            </div>
+            <div id="activeWorkersList" class="workers-grid">
+              <div class="empty-hint">Şu anda aktif çalışan oturum yok. Aşağıdan bir kampanya başlatabilir veya sağ üstten <strong>Hızlı Canlı Demo</strong> gönderebilirsiniz.</div>
+            </div>
+          </div>
+
+          <!-- Campaigns List -->
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Trafik Kampanyaları</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Kampanya & Hedef</th>
+                    <th>Gönderim Modu</th>
+                    <th>İlerleme</th>
+                    <th>GA4 Sinyali</th>
+                    <th>Cihaz & Süre</th>
+                    <th>Durum</th>
+                    <th>İşlemler</th>
+                  </tr>
+                </thead>
+                <tbody id="campaignsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: AUTOMATIC COOKIE POOL -->
+        <section class="tab-pane" id="tab-cookies">
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Dahili Otomatik Çerez (Cookie) Üretim & Yaşlandırma Motoru</h2>
+              <div class="btn-row">
+                <a class="btn btn-secondary btn-sm" href="#" id="btnExportNetscape">Netscape (.txt) İndir</a>
+                <a class="btn btn-secondary btn-sm" href="#" id="btnExportJson">JSON İndir</a>
+                <button class="btn btn-secondary btn-sm" id="btnOpenCookieImport">Dışarıdan Çerez İçe Aktar</button>
+                <button class="btn btn-danger btn-sm" id="btnClearCookies">Havuzu Temizle</button>
+              </div>
+            </div>
+            <p class="card-desc">
+              Dışarıdan çerez satın almaya gerek kalmadan; Google ve popüler haber/otorite sitelerinde gerçek Stealth tarayıcı oturumlarıyla ön gezinme yaparak organik geçmişe sahip (`_ga`, `NID`, `AEC`, `SOCS`) sıcak çerez profilleri üretir.
+            </p>
+            <div class="form-row-inline">
+              <div class="field">
+                <label>Üretilecek Profil Adedi</label>
+                <input type="number" id="ckCount" value="5" min="1" max="200" />
+              </div>
+              <div class="field">
+                <label>Eşzamanlı Tarayıcı</label>
+                <input type="number" id="ckConcurrency" value="2" min="1" max="8" />
+              </div>
+              <div class="field">
+                <label>Cihaz Tipi</label>
+                <select id="ckDeviceType">
+                  <option value="auto">Karışık (%70 Mobil / %30 Masaüstü)</option>
+                  <option value="mobile">Sadece Mobil (Android / iOS)</option>
+                  <option value="desktop">Sadece Masaüstü (Win11 / macOS)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Gezilecek Otorite Site</label>
+                <input type="number" id="ckSitesCount" value="3" min="1" max="8" />
+              </div>
+              <div class="field checkbox-inline">
+                <label><input type="checkbox" id="ckUseProxies" /> Proxy Havuzunu Kullan</label>
+              </div>
+              <div class="field">
+                <button class="btn btn-primary" id="btnStartCookieWarmup">Çerez Üretimini Başlat</button>
+                <button class="btn btn-danger hidden" id="btnStopCookieWarmup">Durdur</button>
+              </div>
+            </div>
+            <div id="cookieJobProgressBox" class="progress-banner hidden">
+              <span id="cookieJobProgressText">Çerez üretiliyor: 0 / 5</span>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Hazır Çerez Profilleri Havuzu</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Profil ID</th>
+                    <th>Cihaz Parmak İzi</th>
+                    <th>Çerez & Domain</th>
+                    <th>Sinyaller</th>
+                    <th>Isınma Skoru</th>
+                    <th>Kullanım</th>
+                    <th>İşlem</th>
+                  </tr>
+                </thead>
+                <tbody id="cookiesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: PROXY & ROTATING MOBILE IP -->
+        <section class="tab-pane" id="tab-proxies">
+          <div class="split-2">
+            <div class="panel-card">
+              <div class="card-header">
+                <h2>Toplu Proxy Ekle (HTTP / SOCKS5)</h2>
+              </div>
+              <p class="card-desc">Desteklenen formatlar: <code>ip:port</code>, <code>ip:port:kullanici:sifre</code>, <code>http://user:pass@ip:port</code>, <code>socks5://user:pass@ip:port</code></p>
+              <textarea id="proxyBulkInput" rows="5" placeholder="185.122.40.15:8080:user1:pass1&#10;socks5://user:pass@95.14.22.10:1080"></textarea>
+              <div class="btn-row mt-10">
+                <button class="btn btn-primary" id="btnImportProxies">Proxyleri Havuza Ekle</button>
+                <button class="btn btn-secondary" id="btnTestProxies">Tümünü Test Et (Hız & Çıkış IP)</button>
+                <button class="btn btn-secondary" id="btnRemoveDeadProxies">Ölü Proxyleri Sil</button>
+                <button class="btn btn-danger" id="btnClearProxies">Tümünü Temizle</button>
+              </div>
+            </div>
+
+            <div class="panel-card">
+              <div class="card-header">
+                <h2>Mobil Proxy (4G/5G Rotating) Otomatik IP Yenileme</h2>
+              </div>
+              <p class="card-desc">Google SERP organik arama modunda CAPTCHA çıkmaması için mobil proxy sağlayıcınızın verdiği IP sıfırlama API adresini tanımlayabilirsiniz.</p>
+              <div class="field">
+                <label>IP Değiştirme (Reset) Webhook URL</label>
+                <input type="text" id="rotApiUrl" placeholder="https://api.mobilproxy.com/changeip?token=..." />
+              </div>
+              <div class="field mt-10">
+                <label>Kaç Ziyarette Bir Otomatik IP Yenilensin?</label>
+                <input type="number" id="rotEveryN" value="5" min="1" max="500" />
+              </div>
+              <div class="btn-row mt-10">
+                <button class="btn btn-primary" id="btnSaveRotation">Kaydet</button>
+                <button class="btn btn-secondary" id="btnTriggerRotationNow">Şimdi IP Yenile & Test Et</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Kayıtlı Proxy Listesi</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Proxy Adresi</th>
+                    <th>Durum</th>
+                    <th>Gecikme</th>
+                    <th>Çıkış IP</th>
+                    <th>Başarılı Oturum</th>
+                    <th>Sil</th>
+                  </tr>
+                </thead>
+                <tbody id="proxiesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 4: HOURLY SCHEDULER & SETTINGS -->
+        <section class="tab-pane" id="tab-settings">
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>24 Saatlik Doğal Organik Trafik Dağılım Zamanlayıcısı</h2>
+              <label class="switch-label">
+                <input type="checkbox" id="setHourlyEnabled" />
+                <span>Saatlik Doğal Ritim Aktif</span>
+              </label>
+            </div>
+            <p class="card-desc">Etkinleştirildiğinde gece saatlerinde gönderim hızını doğal oranda yavaşlatıp gündüz/akşam pik saatlerinde %100 kapasiteyle çalıştırır.</p>
+            <div id="hourlyBarsContainer" class="hourly-grid"></div>
+          </div>
+
+          <div class="panel-card">
+            <div class="card-header">
+              <h2>Stealth Tarayıcı Motoru & Çerez Tohum (Seed) Ayarları</h2>
+            </div>
+            <div class="form-grid-2">
+              <div class="field">
+                <label>Chrome / Chromium / Edge Çalıştırılabilir Dosya Yolu (Boş bırakılırsa otomatik algılanır)</label>
+                <input type="text" id="setBrowserPath" placeholder="Otomatik Algıla" />
+              </div>
+              <div class="field">
+                <label>Google Arama Alan Adı</label>
+                <select id="setGoogleDomain">
+                  <option value="https://www.google.com.tr">google.com.tr (Türkiye)</option>
+                  <option value="https://www.google.com">google.com (Global / ABD)</option>
+                  <option value="https://www.google.de">google.de (Almanya)</option>
+                  <option value="https://www.google.co.uk">google.co.uk (İngiltere)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Maksimum Küresel Eşzamanlı Tarayıcı Limiti (RAM Koruması)</label>
+                <input type="number" id="setMaxConcurrency" value="4" min="1" max="20" />
+              </div>
+              <div class="field">
+                <label>Tarayıcı Dil & Saat Dilimi</label>
+                <div class="split-inline">
+                  <input type="text" id="setLocale" value="tr-TR" placeholder="tr-TR" />
+                  <input type="text" id="setTimezone" value="Europe/Istanbul" placeholder="Europe/Istanbul" />
+                </div>
+              </div>
+              <div class="field checkbox-inline">
+                <label><input type="checkbox" id="setLightweight" checked /> Varsayılan Hafif Mod (Ağır Görsel/Video/Font Engelle, GA4 & JS Açık Tut)</label>
+              </div>
+              <div class="field checkbox-inline">
+                <label><input type="checkbox" id="setHeadless" checked /> Varsayılan Arka Plan Modu (Headless — Kapatılırsa tarayıcı pencereleri ekranda görünür)</label>
+              </div>
+            </div>
+            <div class="field mt-10">
+              <label>Otomatik Çerez Isıtma Otorite / Haber Siteleri (Her satıra 1 URL)</label>
+              <textarea id="setSeedSites" rows="5"></textarea>
+            </div>
+            <div class="btn-row mt-10">
+              <button class="btn btn-primary" id="btnSaveSettings">Tüm Ayarları Kaydet</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- RIGHT SIDEBAR: LIVE REAL-TIME WORKER TERMINAL -->
+      <aside class="terminal-panel">
+        <div class="terminal-header">
+          <div>
+            <h3>Canlı Oturum Günlüğü (SSE)</h3>
+            <span class="term-sub">Gerçek zamanlı Stealth CDP & GA4 akışı</span>
+          </div>
+          <button class="btn btn-ghost btn-xs" id="btnClearLogs">Temizle</button>
+        </div>
+        <div class="terminal-body" id="liveLogStream"></div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- MODAL 1: QUICK LIVE DEMO -->
+  <div class="modal-backdrop hidden" id="modalQuickDemo">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>⚡ Müşteri İçin Hızlı Canlı Demo Başlat</h3>
+        <button class="close-btn" data-close="modalQuickDemo">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="card-desc">Hedef siteye saniyeler içinde gerçek JS/GA4 sinyalli, otomatik çerezli ve alt sayfa gezinmeli canlı demo oturumları gönderir.</p>
+        <div class="field">
+          <label>Hedef Site URL Adresi *</label>
+          <input type="text" id="demoUrl" placeholder="https://ornek-musteri-sitesi.com/" />
+        </div>
+        <div class="form-grid-2 mt-10">
+          <div class="field">
+            <label>Gönderim Modu</label>
+            <select id="demoMode">
+              <option value="direct">Direkt & Anlık GA4 Ziyaretçi (En Hızlı Demo)</option>
+              <option value="referrer">Sosyal Medya / Google Referrer Girişi</option>
+              <option value="serp">Google'da Kelime Aratıp Tıklama (SERP)</option>
+              <option value="branded">Markalı Arama & Autocomplete Sinyali</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Anahtar Kelime (SERP / Markalı mod için)</label>
+            <input type="text" id="demoKeyword" placeholder="örnek anahtar kelime" />
+          </div>
+          <div class="field">
+            <label>Demo Ziyaret Adedi</label>
+            <input type="number" id="demoVisits" value="3" min="1" max="25" />
+          </div>
+          <div class="field">
+            <label>Eşzamanlı Oturum</label>
+            <input type="number" id="demoConcurrency" value="2" min="1" max="6" />
+          </div>
+          <div class="field">
+            <label>Sitede Kalma Süresi (Saniye)</label>
+            <input type="number" id="demoDwell" value="35" min="10" max="300" />
+          </div>
+          <div class="field">
+            <label>Gezilecek Alt Sayfa Sayısı</label>
+            <input type="number" id="demoSubpages" value="2" min="0" max="6" />
+          </div>
+        </div>
+        <div class="checkbox-group mt-10">
+          <label><input type="checkbox" id="demoLightweight" checked /> Hafifletilmiş Gerçek Tarayıcı (Görsel/Video Kapat, GA4 JS Çalıştır)</label>
+          <label><input type="checkbox" id="demoVisibleWindow" /> Tarayıcıyı Ekranda Görünür Aç (Canlı Ekran Paylaşımında İzletmek İçin)</label>
+          <label><input type="checkbox" id="demoUseCookies" checked /> Çerez Havuzundan Isınmış Profil Kullan</label>
+          <label><input type="checkbox" id="demoUseProxies" /> Proxy Havuzunu Kullan</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close="modalQuickDemo">İptal</button>
+        <button class="btn btn-primary" id="btnSubmitQuickDemo">Canlı Demoyu Şimdi Başlat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: CAMPAIGN CREATE / EDIT -->
+  <div class="modal-backdrop hidden" id="modalCampaign">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <h3 id="campModalTitle">Kampanya Oluştur / Düzenle</h3>
+        <button class="close-btn" data-close="modalCampaign">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="campId" />
+        <div class="form-grid-2">
+          <div class="field">
+            <label>Kampanya Adı *</label>
+            <input type="text" id="campName" placeholder="Örn: Ana Kelime SERP Kampanyası" />
+          </div>
+          <div class="field">
+            <label>Trafik Gönderim Modu</label>
+            <select id="campMode">
+              <option value="serp">Google Organik Arama & Tıklama (SERP CTR)</option>
+              <option value="branded">Markalı Arama & Autocomplete Sinyali</option>
+              <option value="referrer">Sosyal Medya / Özel Referrer Hit</option>
+              <option value="direct">Direkt & GA4 Anlık Trafik</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Hedef Domain (SERP eşleşmesi için) *</label>
+            <input type="text" id="campDomain" placeholder="orneksite.com" />
+          </div>
+          <div class="field">
+            <label>Marka Adı (Markalı Autocomplete modu için)</label>
+            <input type="text" id="campBrand" placeholder="ÖrnekMarka" />
+          </div>
+        </div>
+        <div class="form-grid-2 mt-10">
+          <div class="field">
+            <label>Hedef Sayfa URL'leri (Her satıra 1 URL)</label>
+            <textarea id="campUrls" rows="3" placeholder="https://orneksite.com/"></textarea>
+          </div>
+          <div class="field">
+            <label>Aranacak Anahtar Kelimeler (Her satıra 1 kelime)</label>
+            <textarea id="campKeywords" rows="3" placeholder="örnek kelime 1&#10;örnek kelime 2"></textarea>
+          </div>
+        </div>
+        <div class="field mt-10">
+          <label>Referrer (Yönlendiren) Kaynakları (Referrer modu için her satıra 1 URL)</label>
+          <textarea id="campReferrers" rows="2">https://t.co/
+https://l.instagram.com/
+https://www.youtube.com/</textarea>
+        </div>
+        <div class="form-grid-4 mt-10">
+          <div class="field">
+            <label>Toplam Hedef Ziyaret</label>
+            <input type="number" id="campTargetVisits" value="100" min="1" />
+          </div>
+          <div class="field">
+            <label>Eşzamanlı Oturum</label>
+            <input type="number" id="campConcurrency" value="2" min="1" max="16" />
+          </div>
+          <div class="field">
+            <label>Mobil Cihaz Oranı (%)</label>
+            <input type="number" id="campMobileRatio" value="70" min="0" max="100" />
+          </div>
+          <div class="field">
+            <label>Max SERP Sayfa Taraması</label>
+            <input type="number" id="campMaxSerp" value="3" min="1" max="10" />
+          </div>
+          <div class="field">
+            <label>Min. Kalma Süresi (sn)</label>
+            <input type="number" id="campDwellMin" value="30" min="5" />
+          </div>
+          <div class="field">
+            <label>Max. Kalma Süresi (sn)</label>
+            <input type="number" id="campDwellMax" value="70" min="10" />
+          </div>
+          <div class="field">
+            <label>Min. Alt Sayfa Gezme</label>
+            <input type="number" id="campSubMin" value="1" min="0" max="10" />
+          </div>
+          <div class="field">
+            <label>Max. Alt Sayfa Gezme</label>
+            <input type="number" id="campSubMax" value="3" min="0" max="10" />
+          </div>
+        </div>
+        <div class="checkbox-group mt-10">
+          <label><input type="checkbox" id="campUseCookies" checked /> Çerez Havuzundan Isınmış Profil Kullan & Her Ziyarette Yaşlandır</label>
+          <label><input type="checkbox" id="campAutoWarm" checked /> Çerez Havuzu Boşsa Oturum Öncesi Otomatik Çerez Üret</label>
+          <label><input type="checkbox" id="campLightweight" checked /> Hafifletilmiş Gerçek Tarayıcı (Ağır Medya/Font Engelle, GA4 JS Açık)</label>
+          <label><input type="checkbox" id="campHeadless" checked /> Arka Planda Çalıştır (Headless)</label>
+          <label><input type="checkbox" id="campUseProxies" /> Proxy Havuzunu Kullan</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close="modalCampaign">Vazgeç</button>
+        <button class="btn btn-primary" id="btnSaveCampaign">Kampanyayı Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: COOKIE IMPORT -->
+  <div class="modal-backdrop hidden" id="modalCookieImport">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Dışarıdan Çerez (Cookie) İçe Aktar</h3>
+        <button class="close-btn" data-close="modalCookieImport">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="card-desc">Netscape HTTP Cookie (<code>.txt</code>) veya JSON (Cookie-Editor / StealthTraffic) formatındaki çerezlerinizi aşağıya yapıştırın.</p>
+        <textarea id="cookieImportTextarea" rows="8" placeholder="# Netscape HTTP Cookie File veya [{ &quot;name&quot;: &quot;_ga&quot;, ... }]"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close="modalCookieImport">İptal</button>
+        <button class="btn btn-primary" id="btnSubmitCookieImport">Havuza Aktar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
