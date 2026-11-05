@@ -1,7 +1,7 @@
 {
   "active": true,
   "customer": "ramiz-lati-demo",
-  "expiresAt": "2026-11-06T14:05:17.507Z",
+  "expiresAt": "2026-11-06T14:06:30.472Z",
   "maxSessions": 150,
-  "serverSecret": "4d84a4902de70027b8326b022d0a517b85e355ad58f7f5f3073b861b30e11a05"
+  "serverSecret": "efd6bcfc9bc55376fc6fac93c864d2e43e3897655d6169401d1de7a5404892b6"
 }
