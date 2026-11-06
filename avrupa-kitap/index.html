@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="frankfurt" data-palette="bordo">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AvrupaKitap & Kültür — Çok Dilli (TR/DE/EN) & Çift Depolu (DE/CH) Stripe E-Ticaret Sistemi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --surface: #FFFFFF;
+      --surface-alt: #F3EFE6;
+      --text: #181512;
+      --text-muted: #655E54;
+      --border: #E5DEC9;
+      --primary: #8B1E24;
+      --primary-hover: #6E151A;
+      --accent: #C89B3C;
+      --badge-bg: #FCE8E9;
+      --badge-text: #8B1E24;
+      --radius: 10px;
+      --card-shadow: 0 10px 28px rgba(24, 21, 18, 0.06);
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    /* 4 PALETTES */
+    html[data-palette="bordo"] {
+      --primary: #8B1E24; --primary-hover: #6B1419; --accent: #C89B3C;
+      --badge-bg: #FCE8E9; --badge-text: #8B1E24;
+    }
+    html[data-palette="zumrut"] {
+      --primary: #14532D; --primary-hover: #0F3F22; --accent: #D97706;
+      --badge-bg: #DCFCE7; --badge-text: #14532D;
+    }
+    html[data-palette="gece"] {
+      --primary: #1E3A8A; --primary-hover: #172554; --accent: #0284C7;
+      --badge-bg: #DBEAFE; --badge-text: #1E3A8A;
+    }
+    html[data-palette="kehribar"] {
+      --primary: #9A3412; --primary-hover: #7C2D12; --accent: #EA580C;
+      --badge-bg: #FFEDD5; --badge-text: #9A3412;
+    }
+
+    /* 4 ARCHITECTURAL THEMES */
+    html[data-theme="frankfurt"] {
+      --bg: #FAF7F2; --surface: #FFFFFF; --surface-alt: #F3EFE6;
+      --text: #181512; --text-muted: #655E54; --border: #E5DEC9;
+      --radius: 8px;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    html[data-theme="zurih"] {
+      --bg: #F8FAFC; --surface: #FFFFFF; --surface-alt: #EEF2F6;
+      --text: #0F172A; --text-muted: #475569; --border: #E2E8F0;
+      --radius: 4px;
+      --card-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    html[data-theme="koln"] {
+      --bg: #FDFBF7; --surface: #FFFDF9; --surface-alt: #F5EFE4;
+      --text: #271E14; --text-muted: #705E4A; --border: #E8DFD1;
+      --radius: 18px;
+      --card-shadow: 0 14px 34px rgba(112, 94, 74, 0.08);
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    html[data-theme="berlin"] {
+      --bg: #0B0F17; --surface: #151C28; --surface-alt: #1E293B;
+      --text: #F8FAFC; --text-muted: #94A3B8; --border: #263349;
+      --radius: 14px;
+      --card-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    html[data-theme="berlin"][data-palette="bordo"] { --primary: #E11D48; --badge-bg: rgba(225,29,72,0.18); --badge-text: #FDA4AF; }
+    html[data-theme="berlin"][data-palette="zumrut"] { --primary: #10B981; --badge-bg: rgba(16,185,129,0.18); --badge-text: #6EE7B7; }
+    html[data-theme="berlin"][data-palette="gece"] { --primary: #3B82F6; --badge-bg: rgba(59,130,246,0.18); --badge-text: #93C5FD; }
+    html[data-theme="berlin"][data-palette="kehribar"] { --primary: #F59E0B; --badge-bg: rgba(245,158,11,0.18); --badge-text: #FCD34D; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      transition: background 0.25s ease, color 0.25s ease;
+      padding-bottom: 80px;
+    }
+
+    /* TOP DEMO STUDIO SWITCHER BAR */
+    .studio-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0F172A;
+      color: #F8FAFC;
+      padding: 10px 20px;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12.5px;
+    }
+    .studio-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .studio-label {
+      color: #94A3B8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 11px;
+      margin-right: 4px;
+    }
+    .chip-btn {
+      background: #1E293B;
+      color: #E2E8F0;
+      border: 1px solid #334155;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 12px;
+      transition: all 0.15s;
+    }
+    .chip-btn:hover { background: #334155; }
+    .chip-btn.active {
+      background: #38BDF8;
+      color: #0F172A;
+      border-color: #38BDF8;
+    }
+    .swatch-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .swatch-btn.active { transform: scale(1.2); border-color: #FFF; box-shadow: 0 0 0 2px #38BDF8; }
+    .mode-switch-btn {
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #FFF;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 12.5px;
+      box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+    }
+
+    /* ANNOUNCEMENT SHIPPING RIBBON */
+    .shipping-ribbon {
+      background: var(--primary);
+      color: #FFF;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .shipping-ribbon span.pill {
+      background: rgba(255,255,255,0.18);
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: 11.5px;
+    }
+
+    /* MAIN HEADER */
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 28px;
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 540px;
+      display: flex;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 11px 16px;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+    .search-bar button {
+      background: var(--primary);
+      color: #FFF;
+      border: none;
+      padding: 0 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .select-pill {
+      background: var(--surface-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .cart-trigger {
+      background: var(--primary);
+      color: #FFF;
+      border: none;
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cart-count {
+      background: #FFF;
+      color: var(--primary);
+      padding: 1px 7px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* CATEGORY NAV */
+    .cat-nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+    }
+    .cat-nav-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+    .cat-tab {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 13.5px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .cat-tab.active, .cat-tab:hover {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    /* HERO BANNER */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 22px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    .hero-main {
+      background: linear-gradient(135deg, var(--primary), #1E1B18);
+      color: #FFF;
+      border-radius: var(--radius);
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      min-height: 290px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.16);
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+    .hero-main h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.4vw, 42px);
+      line-height: 1.12;
+      margin-bottom: 12px;
+      max-width: 580px;
+    }
+    .hero-main p {
+      color: rgba(255,255,255,0.86);
+      font-size: 15px;
+      max-width: 520px;
+      margin-bottom: 22px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .hero-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+    }
+    .warehouse-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .warehouse-card h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .warehouse-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .wh-meta {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .wh-pill {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 6px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+    }
+
+    /* FILTER BAR */
+    .filter-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* BOOK GRID */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 22px;
+    }
+    html[data-theme="zurih"] .book-grid {
+      gap: 14px;
+    }
+    .book-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-4px);
+    }
+    .cover-wrap {
+      height: 250px;
+      background: var(--surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      position: relative;
+      cursor: pointer;
+    }
+    .book-cover-art {
+      width: 148px;
+      height: 214px;
+      border-radius: 4px 8px 8px 4px;
+      box-shadow: -6px 8px 20px rgba(0,0,0,0.28), inset 4px 0 8px rgba(255,255,255,0.25);
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #FFF;
+      position: relative;
+      text-align: left;
+    }
+    .book-cover-art::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255,255,255,0.25);
+    }
+    .cover-pub {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+      font-weight: 700;
+    }
+    .cover-title {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .cover-author {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+    .lang-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .bestseller-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--primary);
+      color: #FFF;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .book-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .book-meta-line {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .book-title {
+      font-family: var(--font-heading);
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+    .book-author {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .isbn-row {
+      font-size: 11px;
+      background: var(--surface-alt);
+      padding: 5px 8px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-family: monospace;
+    }
+    .stock-badges {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .stk-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+    .stk-tag.ok { color: #15803D; border-color: rgba(21,128,61,0.25); }
+    html[data-theme="berlin"] .stk-tag.ok { color: #4ADE80; }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .price-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .price-old {
+      font-size: 12px;
+      text-decoration: line-through;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+    .add-btn {
+      background: var(--primary);
+      color: #FFF;
+      border: none;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 12.5px;
+      cursor: pointer;
+    }
+    .add-btn:hover { background: var(--primary-hover); }
+
+    /* CHECKOUT DRAWER */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 200;
+      display: none;
+      justify-content: flex-end;
+    }
+    .drawer-backdrop.open { display: flex; }
+    .drawer {
+      width: 100%;
+      max-width: 480px;
+      background: var(--surface);
+      color: var(--text);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 35px rgba(0,0,0,0.3);
+    }
+    .drawer-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .drawer-body {
+      padding: 20px 22px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .drawer-footer {
+      padding: 18px 22px;
+      border-top: 1px solid var(--border);
+      background: var(--surface-alt);
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+    .stripe-box {
+      margin-top: 16px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .pay-methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .pay-method {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+    .pay-method.active {
+      border-color: var(--primary);
+      background: var(--badge-bg);
+      color: var(--badge-text);
+    }
+
+    /* ADMIN PANEL VIEW */
+    #adminView { display: none; }
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .admin-grid { grid-template-columns: 1fr; }
+    }
+    .admin-nav {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      height: fit-content;
+    }
+    .admin-nav button {
+      width: 100%;
+      text-align: left;
+      padding: 11px 14px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13.5px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 4px;
+    }
+    .admin-nav button.active {
+      background: var(--primary);
+      color: #FFF;
+    }
+    .admin-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .admin-table th, .admin-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .cookie-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      max-width: 620px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP STUDIO SWITCHER -->
+  <div class="studio-bar">
+    <div class="studio-group">
+      <span class="studio-label">4 Tema:</span>
+      <button class="chip-btn active" onclick="setTheme('frankfurt', this)">1. Frankfurt Edebiyat (Serif)</button>
+      <button class="chip-btn" onclick="setTheme('zurih', this)">2. Zürih Modern (Swiss Grid)</button>
+      <button class="chip-btn" onclick="setTheme('koln', this)">3. Köln Kültür (Sıcak Kitabevi)</button>
+      <button class="chip-btn" onclick="setTheme('berlin', this)">4. Berlin Gece (Dark Bento)</button>
+    </div>
+    <div class="studio-group">
+      <span class="studio-label">Renk Paleti (16 Varyasyon):</span>
+      <button class="swatch-btn active" style="background:#8B1E24" onclick="setPalette('bordo', this)" title="Klasik Bordo"></button>
+      <button class="swatch-btn" style="background:#14532D" onclick="setPalette('zumrut', this)" title="Zümrüt Kütüphane"></button>
+      <button class="swatch-btn" style="background:#1E3A8A" onclick="setPalette('gece', this)" title="Gece Mavisi"></button>
+      <button class="swatch-btn" style="background:#9A3412" onclick="setPalette('kehribar', this)" title="Kehribar"></button>
+    </div>
+    <div class="studio-group">
+      <button class="mode-switch-btn" id="modeBtn" onclick="toggleAdminMode()">⚙️ Yönetim Panelini Aç (ISBN Botu + Çift Depo + Stripe)</button>
+    </div>
+  </div>
+
+  <!-- SHIPPING & WAREHOUSE RIBBON -->
+  <div class="shipping-ribbon">
+    <span id="rib1">🇩🇪 Almanya (Frankfurt) & 🇨🇭 İsviçre (Zürih) Çift Depodan Aynı Gün Kargo</span>
+    <span class="pill" id="rib2">49,00 € / 55.00 CHF Üzeri Ücretsiz DHL & SwissPost</span>
+    <span class="pill">🔒 Stripe 3D Secure • Klarna • SEPA • TWINT</span>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand" onclick="return false;">
+        <div class="brand-mark">A</div>
+        <div>
+          <div class="brand-title" id="brandTitle">Avrupa Kitabevi</div>
+          <div class="brand-sub" id="brandSub">Almanya & İsviçre Merkezli Kültür ve Kitap Platformu</div>
+        </div>
+      </a>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Kitap adı, Yazar, Yayınevi veya 13 Haneli ISBN ara..." oninput="renderBooks()" />
+        <button onclick="renderBooks()" id="searchBtn">Ara</button>
+      </div>
+
+      <div class="header-actions">
+        <select class="select-pill" id="langSelect" onchange="changeLang(this.value)">
+          <option value="tr">🇹🇷 Türkçe (Varsayılan)</option>
+          <option value="de">🇩🇪 Deutsch (DE)</option>
+          <option value="en">🇬🇧 English (EN)</option>
+        </select>
+
+        <select class="select-pill" id="currSelect" onchange="changeCurrency(this.value)">
+          <option value="EUR">€ EUR (Avrupa)</option>
+          <option value="CHF">Fr. CHF (İsviçre)</option>
+        </select>
+
+        <button class="cart-trigger" onclick="openCart()">
+          <span>🛒 <span id="cartLabel">Sepet</span></span>
+          <span class="cart-count" id="cartCount">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CATEGORY NAV -->
+  <nav class="cat-nav">
+    <div class="cat-nav-inner">
+      <button class="cat-tab active" onclick="filterCat('all', this)" data-i18n="catAll">Tüm Kitaplar (12)</button>
+      <button class="cat-tab" onclick="filterCat('Edebiyat & Roman', this)">Edebiyat & Roman</button>
+      <button class="cat-tab" onclick="filterCat('Tarih & Araştırma', this)">Tarih & Araştırma</button>
+      <button class="cat-tab" onclick="filterCat('Çocuk & Çift Dilli (TR/DE)', this)">Çocuk & Çift Dilli (TR/DE)</button>
+      <button class="cat-tab" onclick="filterCat('Felsefe & Psikoloji', this)">Felsefe & Psikoloji</button>
+      <button class="cat-tab" onclick="filterCat('Çok Satanlar', this)">🔥 Çok Satanlar</button>
+      <button class="cat-tab" onclick="filterCat('İndirimli Setler', this)">🎁 Kampanyalı Setler</button>
+    </div>
+  </nav>
+
+  <!-- STOREFRONT VIEW -->
+  <main class="container" id="storeView">
+    <section class="hero-grid">
+      <div class="hero-main">
+        <div>
+          <div class="hero-tag">✨ Avrupa'nın Her Köşesine Türkçe & Dünya Edebiyatı</div>
+          <h1 id="heroHeading">Almanya ve İsviçre Depolarımızdan Gümrüksüz, Hızlı Kitap Teslimatı</h1>
+          <p id="heroDesc">Binlerce seçkin eseri ISBN, yazar ve yayınevi filtreleriyle saniyeler içinde bulun; üyeliksiz hızlı sipariş ve Stripe (Klarna, SEPA, TWINT, Kart) güvencesiyle kapınıza gelsin.</p>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge">📦 Frankfurt (DE) Depo: 14.800+ Kitap</div>
+          <div class="hero-badge">📦 Zürih (CH) Depo: 6.400+ Kitap</div>
+          <div class="hero-badge">⚡ Üyeliksiz 30 Saniyede Sipariş</div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="warehouse-card">
+          <div>
+            <h3><span>🇩🇪 Almanya & AB Lojistik Merkezi</span> <span class="wh-pill">Aktif</span></h3>
+            <p>Almanya, Avusturya, Hollanda, Fransa ve Belçika siparişleri Frankfurt depomuzdan DHL Paket ile 1-3 iş gününde teslim edilir.</p>
+          </div>
+          <div class="wh-meta">
+            <span class="wh-pill">Ücretsiz Kargo: 49,00 €+</span>
+            <span class="wh-pill">Ağırlık Kuralı: Otomatik</span>
+          </div>
+        </div>
+
+        <div class="warehouse-card">
+          <div>
+            <h3><span>🇨🇭 İsviçre Zürih Depo (Gümrüksüz)</span> <span class="wh-pill">Aktif</span></h3>
+            <p>İsviçre içi siparişler doğrudan Zürih depomuzdan CHF para birimiyle ve gümrük vergisi çıkmadan SwissPost ile sevk edilir.</p>
+          </div>
+          <div class="wh-meta">
+            <span class="wh-pill">Ücretsiz Kargo: 55.00 CHF+</span>
+            <span class="wh-pill">Stripe + TWINT + Kart</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER STRIP -->
+    <section class="filter-strip">
+      <div class="filter-controls">
+        <strong>🔍 Kitap Özel Filtreleri:</strong>
+        <select class="select-pill" id="warehouseFilter" onchange="renderBooks()">
+          <option value="all">🌍 Tüm Depolar (Almanya + İsviçre)</option>
+          <option value="DE">🇩🇪 Sadece Almanya (Frankfurt) Stokta Olanlar</option>
+          <option value="CH">🇨🇭 Sadece İsviçre (Zürih) Stokta Olanlar</option>
+        </select>
+
+        <select class="select-pill" id="bookLangFilter" onchange="renderBooks()">
+          <option value="all">📚 Tüm Basım Dilleri</option>
+          <option value="Türkçe">Türkçe Basım</option>
+          <option value="TR / DE Çift Dilli">TR / DE Çift Dilli</option>
+          <option value="Almanca">Almanca (Deutsch)</option>
+        </select>
+
+        <select class="select-pill" id="coverFilter" onchange="renderBooks()">
+          <option value="all">📖 Tüm Kapak Türleri</option>
+          <option value="Karton Kapak">Karton Kapak (Paperback)</option>
+          <option value="Ciltli (Hardcover)">Ciltli Özel Basım (Hardcover)</option>
+        </select>
+      </div>
+      <div style="font-size:13px; color:var(--text-muted);" id="resultCounter">12 kitap listeleniyor</div>
+    </section>
+
+    <!-- BOOKS GRID -->
+    <section class="book-grid" id="bookGrid"></section>
+  </main>
+
+  <!-- ADMIN PANEL VIEW -->
+  <section class="container" id="adminView">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+      <div>
+        <h1 style="font-family:var(--font-heading); font-size:30px;">Avrupa Kitabevi — Kapsamlı Yönetim Paneli</h1>
+        <p style="color:var(--text-muted); font-size:14px;">ISBN'den Otomatik Kitap Çekme • Almanya/İsviçre Çift Depo • Ülke/Ağırlık Kargo Motoru • Stripe Webhook & İade (Refund)</p>
+      </div>
+      <button class="cart-trigger" onclick="toggleAdminMode()">← Mağaza Vitrinine Dön</button>
+    </div>
+
+    <div class="admin-grid">
+      <aside class="admin-nav">
+        <button class="active">1. 📚 ISBN Botu & Ürün Yönetimi</button>
+        <button onclick="document.getElementById('whSection').scrollIntoView({behavior:'smooth'})">2. 🏭 Almanya & İsviçre Çift Depo</button>
+        <button onclick="document.getElementById('shipSection').scrollIntoView({behavior:'smooth'})">3. 🚚 Ülke & Ağırlık Kargo Kuralları</button>
+        <button onclick="document.getElementById('stripeSection').scrollIntoView({behavior:'smooth'})">4. 💳 Stripe Webhook & Refund (İade)</button>
+      </aside>
+
+      <div>
+        <!-- MODULE 1: ISBN AUTO FETCH -->
+        <div class="admin-card">
+          <h3>🤖 Akıllı ISBN-13 Künye & Kapak Otomatik Çekme Modülü</h3>
+          <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">13 haneli ISBN numarasını girin; kitabın adı, yazarı, yayınevi, sayfa sayısı, baskı yılı ve ağırlığı otomatik dolsun.</p>
+          <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <input type="text" id="isbnFetchInput" class="form-input" style="max-width:280px;" value="9789750802942" placeholder="Örn: 9789750802942" />
+            <button class="add-btn" onclick="simulateIsbnFetch()">⚡ ISBN'den Bilgileri Otomatik Çek</button>
+            <button class="chip-btn" onclick="alert('Excel / XML (.xlsx, .csv, .xml) toplu kitap ve stok aktarım sihirbazı hazır!')">📥 Excel / XML Toplu Kitap Yükle</button>
+          </div>
+          <div class="form-row" id="isbnForm">
+            <input class="form-input" id="fTitle" placeholder="Kitap Adı" value="Kürk Mantolu Madonna" />
+            <input class="form-input" id="fAuthor" placeholder="Yazar" value="Sabahattin Ali" />
+            <input class="form-input" id="fPub" placeholder="Yayınevi" value="Yapı Kredi Yayınları" />
+            <input class="form-input" id="fPages" placeholder="Sayfa Sayısı" value="160 Sayfa • 180 gr" />
+            <input class="form-input" id="fPriceEur" placeholder="Fiyat (EUR)" value="11.90" />
+            <input class="form-input" id="fPriceChf" placeholder="Fiyat (CHF)" value="12.90" />
+          </div>
+        </div>
+
+        <!-- MODULE 2: DUAL WAREHOUSE -->
+        <div class="admin-card" id="whSection">
+          <h3>🏭 Almanya (Frankfurt DE) & İsviçre (Zürih CH) Çift Depo Stok Yönetimi</h3>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ISBN-13</th>
+                <th>Kitap Adı</th>
+                <th>🇩🇪 Almanya Depo</th>
+                <th>🇨🇭 İsviçre Depo</th>
+                <th>Fiyat (EUR / CHF)</th>
+                <th>Durum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>9789750802942</code></td>
+                <td><strong>Kürk Mantolu Madonna</strong> — Sabahattin Ali</td>
+                <td><input type="number" value="48" class="form-input" style="width:76px" /></td>
+                <td><input type="number" value="22" class="form-input" style="width:76px" /></td>
+                <td>11,90 € / 12.90 CHF</td>
+                <td><span class="wh-pill">Her İki Depoda Aktif</span></td>
+              </tr>
+              <tr>
+                <td><code>9789754700114</code></td>
+                <td><strong>Tutunamayanlar (Ciltli Özel Basım)</strong> — Oğuz Atay</td>
+                <td><input type="number" value="19" class="form-input" style="width:76px" /></td>
+                <td><input type="number" value="14" class="form-input" style="width:76px" /></td>
+                <td>24,90 € / 26.90 CHF</td>
+                <td><span class="wh-pill">Her İki Depoda Aktif</span></td>
+              </tr>
+              <tr>
+                <td><code>9783125631892</code></td>
+                <td><strong>Türkçe-Almanca Resimli Çocuk Sözlüğü</strong></td>
+                <td><input type="number" value="65" class="form-input" style="width:76px" /></td>
+                <td><input type="number" value="31" class="form-input" style="width:76px" /></td>
+                <td>16,50 € / 17.90 CHF</td>
+                <td><span class="wh-pill">Her İki Depoda Aktif</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- MODULE 3: SHIPPING RULES -->
+        <div class="admin-card" id="shipSection">
+          <h3>🚚 Ülke, Ağırlık & Ücretsiz Kargo Eşiğine Göre Kargo Kural Motoru</h3>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Bölge / Ülke</th>
+                <th>Çıkış Deposu</th>
+                <th>Taşıyıcı</th>
+                <th>0 - 2 kg Ücreti</th>
+                <th>2 - 5 kg Ücreti</th>
+                <th>Ücretsiz Kargo Eşiği</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🇩🇪 Almanya İçi</td>
+                <td>Frankfurt (DE)</td>
+                <td>DHL Paket</td>
+                <td>4,90 €</td>
+                <td>6,50 €</td>
+                <td><strong>49,00 € ve üzeri</strong></td>
+              </tr>
+              <tr>
+                <td>🇨🇭 İsviçre İçi (Gümrüksüz)</td>
+                <td>Zürih (CH)</td>
+                <td>SwissPost Priority</td>
+                <td>6.90 CHF</td>
+                <td>8.90 CHF</td>
+                <td><strong>55.00 CHF ve üzeri</strong></td>
+              </tr>
+              <tr>
+                <td>🇦🇹 🇳🇱 🇫🇷 🇧🇪 AB Bölgesi 1</td>
+                <td>Frankfurt (DE)</td>
+                <td>DHL / DPD Euro</td>
+                <td>7,90 €</td>
+                <td>10,90 €</td>
+                <td><strong>69,00 € ve üzeri</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- MODULE 4: STRIPE WEBHOOK & REFUND -->
+        <div class="admin-card" id="stripeSection">
+          <h3>💳 Stripe Webhook Doğrulama & Tek Tıkla İade (Refund) Yönetimi</h3>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Sipariş No</th>
+                <th>Müşteri & Ülke</th>
+                <th>Çıkış Deposu</th>
+                <th>Stripe Event</th>
+                <th>Tutar</th>
+                <th>İşlem (Refund / Fatura)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>#AVK-8492</code></td>
+                <td>Selin Kaya (🇩🇪 Berlin, DE — Üyeliksiz)</td>
+                <td>Frankfurt DE</td>
+                <td><code>payment_intent.succeeded</code></td>
+                <td><strong>54,60 €</strong> (Klarna)</td>
+                <td><button class="chip-btn" onclick="alert('Stripe Refund API tetiklendi: #AVK-8492 için kısmi/tam iade penceresi açıldı.')">↩ Stripe İade (Refund)</button></td>
+              </tr>
+              <tr>
+                <td><code>#AVK-8491</code></td>
+                <td>Murat Demir (🇨🇭 Basel, CH — Üye)</td>
+                <td>Zürih CH</td>
+                <td><code>payment_intent.succeeded</code></td>
+                <td><strong>62.40 CHF</strong> (TWINT / Kart)</td>
+                <td><button class="chip-btn" onclick="alert('Stripe Refund API tetiklendi: #AVK-8491 için kısmi/tam iade penceresi açıldı.')">↩ Stripe İade (Refund)</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART & STRIPE CHECKOUT DRAWER -->
+  <div class="drawer-backdrop" id="cartBackdrop" onclick="if(event.target===this)closeCart()">
+    <div class="drawer">
+      <div class="drawer-header">
+        <h3>🛒 Sipariş & Stripe Hızlı Ödeme</h3>
+        <button class="chip-btn" onclick="closeCart()">✕ Kapat</button>
+      </div>
+      <div class="drawer-body">
+        <div id="cartItemsList"></div>
+
+        <div style="margin-top:14px;">
+          <label style="font-size:12.5px; font-weight:700;">🌍 Teslimat Ülkesi (Otomatik Depo & Kargo Kuralı):</label>
+          <select class="form-input" style="margin-top:6px;" id="shipCountry" onchange="updateCartTotals()">
+            <option value="DE">🇩🇪 Almanya (Frankfurt Depodan — DHL 4,90 € / 49 €+ Ücretsiz)</option>
+            <option value="CH">🇨🇭 İsviçre (Zürih Depodan Gümrüksüz — SwissPost 6.90 CHF / 55 CHF+ Ücretsiz)</option>
+            <option value="EU">🇦🇹 🇳🇱 🇫🇷 🇧🇪 Avusturya / Hollanda / Fransa / Belçika (DHL Euro 7,90 €)</option>
+          </select>
+        </div>
+
+        <div style="margin-top:12px; display:flex; gap:8px;">
+          <input type="text" id="couponInput" class="form-input" placeholder="İndirim / Hediye Kartı Kodu (Örn: AVRUPA10)" />
+          <button class="add-btn" onclick="applyCoupon()">Uygula</button>
+        </div>
+
+        <div class="stripe-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong>⚡ Üyeliksiz Hızlı Sipariş veya Giriş</strong>
+            <span style="font-size:11px; color:var(--primary); font-weight:700;">Stripe Verified</span>
+          </div>
+          <input class="form-input" style="margin-top:8px;" placeholder="Ad Soyad" value="Örnek Müşteri" />
+          <input class="form-input" style="margin-top:8px;" placeholder="E-Posta (Sipariş & Kargo Takip Linki İçin)" value="musteri@ornek.de" />
+          <input class="form-input" style="margin-top:8px;" placeholder="Teslimat Adresi (Sokak, Posta Kodu, Şehir)" value="Hauptstraße 42, 60311 Frankfurt am Main" />
+
+          <div style="margin-top:12px; font-size:12px; font-weight:700;">Stripe Ödeme Yöntemi Seçin:</div>
+          <div class="pay-methods">
+            <div class="pay-method active" onclick="selectPay(this)">💳 Kredi / Banka Kartı</div>
+            <div class="pay-method" onclick="selectPay(this)">🌸 Klarna (Taksit / Sonra Öde)</div>
+            <div class="pay-method" onclick="selectPay(this)">🏦 SEPA Direct Debit</div>
+            <div class="pay-method" onclick="selectPay(this)">🇨🇭 TWINT / Apple Pay</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;">
+          <span>Toplam Paket Ağırlığı & Çıkış Deposu:</span>
+          <strong id="weightSummary">640 gr • Frankfurt (DE)</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:4px;">
+          <span>Kargo Ücreti:</span>
+          <strong id="shippingCostText">4,90 €</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:18px; font-weight:800; margin:10px 0;">
+          <span>Genel Toplam:</span>
+          <span style="color:var(--primary)" id="grandTotalText">38,70 €</span>
+        </div>
+        <button class="cart-trigger" style="width:100%; justify-content:center; padding:13px;" onclick="completeDemoOrder()">
+          🔒 Stripe ile Güvenli Öde ve Siparişi Tamamla
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GDPR COOKIE BANNER -->
+  <div class="cookie-bar" id="cookieBar">
+    <div>
+      <strong>🍪 GDPR / DSGVO Çerez ve Gizlilik Onayı:</strong> Avrupa Birliği (DSGVO) ve İsviçre veri koruma kurallarına uygun olarak yalnızca zorunlu sepet ve Stripe güvenlik çerezleri kullanılmaktadır.
+    </div>
+    <button class="add-btn" onclick="document.getElementById('cookieBar').style.display='none'">Kabul Et</button>
+  </div>
+
+  <script>
+    const BOOKS = [
+      { id: 1, title: "Kürk Mantolu Madonna", author: "Sabahattin Ali", pub: "Yapı Kredi Yayınları", isbn: "9789750802942", cat: "Edebiyat & Roman", lang: "Türkçe", cover: "Karton Kapak", pages: 160, year: 2026, weight: 180, eur: 11.90, chf: 12.90, deStock: 48, chStock: 22, badge: "Çok Satan", color: "linear-gradient(145deg,#7F1D1D,#450A0A)" },
+      { id: 2, title: "Tutunamayanlar (Özel Ciltli)", author: "Oğuz Atay", pub: "İletişim Yayınları", isbn: "9789754700114", cat: "Edebiyat & Roman", lang: "Türkçe", cover: "Ciltli (Hardcover)", pages: 724, year: 2026, weight: 680, eur: 24.90, chf: 26.90, deStock: 19, chStock: 14, badge: "Özel Basım", color: "linear-gradient(145deg,#1E3A8A,#0F172A)" },
+      { id: 3, title: "Saatleri Ayarlama Enstitüsü", author: "Ahmet Hamdi Tanpınar", pub: "Dergâh Yayınları", isbn: "9789759955762", cat: "Edebiyat & Roman", lang: "Türkçe", cover: "Karton Kapak", pages: 382, year: 2026, weight: 340, eur: 15.50, chf: 16.90, deStock: 34, chStock: 18, badge: "Klasik", color: "linear-gradient(145deg,#14532D,#052E16)" },
+      { id: 4, title: "İnce Memed 4 Cilt Tam Set", author: "Yaşar Kemal", pub: "Yapı Kredi Yayınları", isbn: "9789750826122", cat: "İndirimli Setler", lang: "Türkçe", cover: "Ciltli (Hardcover)", pages: 2180, year: 2026, weight: 1850, eur: 54.00, chf: 58.00, deStock: 12, chStock: 9, badge: "Ücretsiz Kargo", color: "linear-gradient(145deg,#9A3412,#431407)" },
+      { id: 5, title: "Türkçe - Almanca İlk 1000 Kelime", author: "Kolektif Eğitim", pub: "Köln Kültür Yayınları", isbn: "9783125631892", cat: "Çocuk & Çift Dilli (TR/DE)", lang: "TR / DE Çift Dilli", cover: "Ciltli (Hardcover)", pages: 96, year: 2026, weight: 420, eur: 16.50, chf: 17.90, deStock: 65, chStock: 31, badge: "Çift Dilli TR/DE", color: "linear-gradient(145deg,#0369A1,#082F49)" },
+      { id: 6, title: "Mustafa Kemal & Modern Türkiye", author: "Prof. Dr. İlber Ortaylı", pub: "Kronik Kitap", isbn: "9789752430518", cat: "Tarih & Araştırma", lang: "Türkçe", cover: "Karton Kapak", pages: 480, year: 2026, weight: 460, eur: 18.90, chf: 20.50, deStock: 29, chStock: 15, badge: "Çok Satan", color: "linear-gradient(145deg,#78350F,#271E14)" },
+      { id: 7, title: "İnsanın Anlam Arayışı", author: "Viktor E. Frankl", pub: "Okuyan Us", isbn: "9786054054190", cat: "Felsefe & Psikoloji", lang: "Türkçe", cover: "Karton Kapak", pages: 168, year: 2026, weight: 190, eur: 12.50, chf: 13.80, deStock: 41, chStock: 19, badge: "Psikoloji", color: "linear-gradient(145deg,#4C1D95,#1E1B4B)" },
+      { id: 8, title: "Masumiyet Müzesi", author: "Orhan Pamuk", pub: "Yapı Kredi Yayınları", isbn: "9789750826016", cat: "Çok Satanlar", lang: "Türkçe", cover: "Karton Kapak", pages: 592, year: 2026, weight: 510, eur: 19.90, chf: 21.50, deStock: 27, chStock: 11, badge: "Nobel Edebiyat", color: "linear-gradient(145deg,#831843,#4C0519)" }
+    ];
+
+    let currentCurr = 'EUR';
+    let currentCat = 'all';
+    let discountRate = 0;
+    let cart = [
+      { bookId: 1, qty: 1 },
+      { bookId: 2, qty: 1 }
+    ];
+
+    function formatMoney(eur, chf) {
+      return currentCurr === 'EUR'
+        ? eur.toFixed(2).replace('.', ',') + ' €'
+        : chf.toFixed(2) + ' CHF';
+    }
+
+    function setTheme(theme, btn) {
+      document.documentElement.setAttribute('data-theme', theme);
+      btn.parentElement.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function setPalette(pal, btn) {
+      document.documentElement.setAttribute('data-palette', pal);
+      btn.parentElement.querySelectorAll('.swatch-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function changeCurrency(curr) {
+      currentCurr = curr;
+      if (curr === 'CHF') {
+        document.getElementById('shipCountry').value = 'CH';
+      } else {
+        document.getElementById('shipCountry').value = 'DE';
+      }
+      renderBooks();
+      updateCartTotals();
+    }
+
+    function changeLang(lang) {
+      const dict = {
+        tr: {
+          title: "Almanya ve İsviçre Depolarımızdan Gümrüksüz, Hızlı Kitap Teslimatı",
+          desc: "Binlerce seçkin eseri ISBN, yazar ve yayınevi filtreleriyle saniyeler içinde bulun; üyeliksiz hızlı sipariş ve Stripe (Klarna, SEPA, TWINT, Kart) güvencesiyle kapınıza gelsin.",
+          placeholder: "Kitap adı, Yazar, Yayınevi veya 13 Haneli ISBN ara...",
+          cart: "Sepet"
+        },
+        de: {
+          title: "Schnelle & Zollfreie Buchlieferung aus unseren Lagern in Frankfurt (DE) & Zürich (CH)",
+          desc: "Finden Sie tausende Bücher per ISBN, Autor oder Verlag; bestellen Sie ohne Registrierung sicher mit Stripe (Klarna, SEPA, TWINT, Karte).",
+          placeholder: "Buchtitel, Autor, Verlag oder 13-stellige ISBN suchen...",
+          cart: "Warenkorb"
+        },
+        en: {
+          title: "Fast & Duty-Free Book Delivery from Our Frankfurt (DE) & Zurich (CH) Warehouses",
+          desc: "Search thousands of titles by ISBN, author, or publisher; order with guest checkout and Stripe (Klarna, SEPA, TWINT, Card).",
+          placeholder: "Search by Book Title, Author, Publisher or 13-digit ISBN...",
+          cart: "Cart"
+        }
+      }[lang];
+      document.getElementById('heroHeading').innerText = dict.title;
+      document.getElementById('heroDesc').innerText = dict.desc;
+      document.getElementById('searchInput').placeholder = dict.placeholder;
+      document.getElementById('cartLabel').innerText = dict.cart;
+    }
+
+    function filterCat(cat, btn) {
+      currentCat = cat;
+      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderBooks();
+    }
+
+    function renderBooks() {
+      const q = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+      const wh = document.getElementById('warehouseFilter').value;
+      const bLang = document.getElementById('bookLangFilter').value;
+      const cov = document.getElementById('coverFilter').value;
+
+      const filtered = BOOKS.filter(b => {
+        if (currentCat !== 'all' && b.cat !== currentCat && !(currentCat === 'Çok Satanlar' && b.badge === 'Çok Satan')) return false;
+        if (wh === 'DE' && b.deStock <= 0) return false;
+        if (wh === 'CH' && b.chStock <= 0) return false;
+        if (bLang !== 'all' && b.lang !== bLang) return false;
+        if (cov !== 'all' && b.cover !== cov) return false;
+        if (q && !(b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q) || b.pub.toLowerCase().includes(q) || b.isbn.includes(q))) return false;
+        return true;
+      });
+
+      document.getElementById('resultCounter').innerText = filtered.length + ' kitap listeleniyor';
+      const grid = document.getElementById('bookGrid');
+      grid.innerHTML = filtered.map(b => `
+        <article class="book-card">
+          <div class="cover-wrap">
+            <span class="lang-badge">${b.lang}</span>
+            <span class="bestseller-badge">${b.badge}</span>
+            <div class="book-cover-art" style="background:${b.color}">
+              <div class="cover-pub">${b.pub}</div>
+              <div class="cover-title">${b.title}</div>
+              <div class="cover-author">${b.author}</div>
+            </div>
+          </div>
+          <div class="book-body">
+            <div>
+              <div class="book-meta-line">
+                <span>${b.pub}</span>
+                <span>${b.pages} syf • ${b.weight}g</span>
+              </div>
+              <div class="book-title">${b.title}</div>
+              <div class="book-author">${b.author} • ${b.cover}</div>
+              <div class="isbn-row">ISBN: ${b.isbn} • Baskı: ${b.year}</div>
+              <div class="stock-badges">
+                <span class="stk-tag ok">🇩🇪 DE Stok: ${b.deStock}</span>
+                <span class="stk-tag ok">🇨🇭 CH Stok: ${b.chStock}</span>
+              </div>
+            </div>
+            <div class="price-row">
+              <div>
+                <span class="price-val">${formatMoney(b.eur, b.chf)}</span>
+                <span class="price-old">${formatMoney(b.eur * 1.2, b.chf * 1.2)}</span>
+              </div>
+              <button class="add-btn" onclick="addToCart(${b.id})">+ Sepete Ekle</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function addToCart(bookId) {
+      const existing = cart.find(i => i.bookId === bookId);
+      if (existing) existing.qty++;
+      else cart.push({ bookId, qty: 1 });
+      updateCartTotals();
+      openCart();
+    }
+
+    function updateCartTotals() {
+      const count = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cartCount').innerText = count;
+
+      const listEl = document.getElementById('cartItemsList');
+      let subEur = 0, subChf = 0, totalWeight = 0;
+
+      listEl.innerHTML = cart.map(item => {
+        const b = BOOKS.find(x => x.id === item.bookId);
+        subEur += b.eur * item.qty;
+        subChf += b.chf * item.qty;
+        totalWeight += b.weight * item.qty;
+        return `
+          <div class="cart-item">
+            <div>
+              <strong>${b.title}</strong>
+              <div style="font-size:11.5px; color:var(--text-muted)">ISBN: ${b.isbn} • ${item.qty} Adet (${b.weight * item.qty}g)</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <strong>${formatMoney(b.eur * item.qty, b.chf * item.qty)}</strong>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const country = document.getElementById('shipCountry').value;
+      const whName = country === 'CH' ? 'Zürih (CH) Depo' : 'Frankfurt (DE) Depo';
+      document.getElementById('weightSummary').innerText = totalWeight + ' gr • ' + whName;
+
+      let shipEur = country === 'EU' ? 7.90 : 4.90;
+      let shipChf = 6.90;
+      if (country === 'DE' && subEur >= 49) shipEur = 0;
+      if (country === 'CH' && subChf >= 55) shipChf = 0;
+      if (country === 'EU' && subEur >= 69) shipEur = 0;
+
+      document.getElementById('shippingCostText').innerText = (shipEur === 0 || (currentCurr === 'CHF' && shipChf === 0))
+        ? 'ÜCRETSİZ KARGO'
+        : formatMoney(shipEur, shipChf);
+
+      const finalEur = (subEur * (1 - discountRate)) + shipEur;
+      const finalChf = (subChf * (1 - discountRate)) + shipChf;
+      document.getElementById('grandTotalText').innerText = formatMoney(finalEur, finalChf);
+    }
+
+    function applyCoupon() {
+      const code = (document.getElementById('couponInput').value || '').trim().toUpperCase();
+      if (code === 'AVRUPA10') {
+        discountRate = 0.10;
+        alert('AVRUPA10 kuponu uygulandı: Sepette %10 indirim aktif!');
+        updateCartTotals();
+      } else {
+        alert('Demo kupon kodu olarak AVRUPA10 yazabilirsiniz.');
+      }
+    }
+
+    function selectPay(el) {
+      el.parentElement.querySelectorAll('.pay-method').forEach(m => m.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function openCart() {
+      updateCartTotals();
+      document.getElementById('cartBackdrop').classList.add('open');
+    }
+    function closeCart() {
+      document.getElementById('cartBackdrop').classList.remove('open');
+    }
+
+    function completeDemoOrder() {
+      alert('✅ Stripe Checkout & Webhook Simülasyonu Başarılı!\n\nSiparişiniz seçilen ülke deposuna (Frankfurt DE / Zürih CH) otomatik yönlendirildi ve DHL / SwissPost barkodu oluşturuldu.');
+      closeCart();
+    }
+
+    function toggleAdminMode() {
+      const store = document.getElementById('storeView');
+      const admin = document.getElementById('adminView');
+      const btn = document.getElementById('modeBtn');
+      if (admin.style.display === 'block') {
+        admin.style.display = 'none';
+        store.style.display = 'block';
+        btn.innerText = '⚙️ Yönetim Panelini Aç (ISBN Botu + Çift Depo + Stripe)';
+      } else {
+        store.style.display = 'none';
+        admin.style.display = 'block';
+        btn.innerText = '🛍️ Mağaza Vitrinine Dön';
+      }
+    }
+
+    function simulateIsbnFetch() {
+      document.getElementById('fTitle').value = 'Masumiyet Müzesi (Özel Basım)';
+      document.getElementById('fAuthor').value = 'Orhan Pamuk';
+      document.getElementById('fPub').value = 'Yapı Kredi Yayınları';
+      document.getElementById('fPages').value = '592 Sayfa • 510 gr';
+      document.getElementById('fPriceEur').value = '19.90';
+      document.getElementById('fPriceChf').value = '21.50';
+      alert('🤖 ISBN-13 (9789750826016) künye verileri, sayfa/ağırlık bilgisi ve yüksek çözünürlüklü kapak görseli otomatik çekildi!');
+    }
+
+    renderBooks();
+    updateCartTotals();
+  </script>
+</body>
+</html>
