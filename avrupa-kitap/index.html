@@ -1282,6 +1282,40 @@
       width: 100%;
     }
 
+    .modal-split-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .isbn-bot-grid {
+      display: grid;
+      grid-template-columns: 1fr 120px 120px auto;
+      gap: 8px;
+    }
+
+    /* NATIVE MOBILE APP BOTTOM NAVIGATION BAR & THEME DRAWER */
+    .mobile-app-nav {
+      display: none;
+    }
+    .mobile-theme-sheet {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 76px;
+      background: #0F172A;
+      color: #F8FAFC;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 20px;
+      padding: 16px;
+      z-index: 2100;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.65);
+    }
+    .mobile-theme-sheet.open {
+      display: block;
+    }
+
     @media (max-width: 960px) {
       .header-main, .hero-munich, .munich-main, .hero-salon, .hero-apple, .hero-bento, .bento-vault, .author-spotlight, .info-split, .footer-grid {
         grid-template-columns: 1fr;
@@ -1290,7 +1324,326 @@
       html[data-theme="salon"] .book-card,
       html[data-theme="bento"] .book-card:nth-child(4n+1) { flex-direction: column; grid-column: span 1; }
       html[data-theme="salon"] .card-3d-wrap,
-      html[data-theme="bento"] .book-card:nth-child(4n+1) .card-3d-wrap { width: 100%; height: 240px; border-right: none; border-bottom: 1px solid var(--border); }
+      html[data-theme="bento"] .book-card:nth-child(4n+1) .card-3d-wrap { width: 100%; height: 220px; border-right: none; border-bottom: 1px solid var(--border); }
+    }
+
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+      body {
+        padding-bottom: 82px;
+      }
+      .container {
+        padding: 0 14px;
+      }
+      /* Compact non-overlapping sticky mobile studio bar */
+      .studio-bar {
+        padding: 6px 10px;
+        position: sticky;
+        top: 0;
+      }
+      .studio-inner {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 8px;
+        scrollbar-width: none;
+      }
+      .studio-inner::-webkit-scrollbar { display: none; }
+      .studio-pill { display: none; }
+      .theme-tabs {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+      }
+      .t-btn {
+        padding: 5px 9px;
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .admin-btn-top {
+        white-space: nowrap;
+        padding: 5px 9px;
+        font-size: 11px;
+      }
+      /* Compact trust ribbon */
+      .trust-ribbon {
+        padding: 6px 0;
+        font-size: 11px;
+      }
+      .trust-items {
+        gap: 6px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        width: 100%;
+        white-space: nowrap;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+      .trust-items::-webkit-scrollbar { display: none; }
+      .trust-Controls {
+        width: 100%;
+        justify-content: space-between;
+        gap: 6px;
+      }
+      .mini-select {
+        flex: 1;
+        font-size: 11px;
+        padding: 4px 6px;
+      }
+      /* Site header becomes clean non-overlapping mobile app header */
+      .site-header {
+        position: relative;
+        top: 0;
+        padding-top: 10px;
+      }
+      .header-main {
+        gap: 10px;
+        padding-bottom: 10px;
+      }
+      .brand-mark { width: 38px; height: 38px; border-radius: 10px; }
+      .brand-title { font-size: 19px; }
+      .brand-sub { font-size: 10px; }
+      .header-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .util-btn, .cart-trigger {
+        justify-content: center;
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+      .search-isbn-tag { display: none; }
+      .search-box { padding: 3px 5px 3px 12px; }
+      .search-box input { font-size: 13px; padding: 6px; }
+      .search-btn { padding: 7px 12px; font-size: 12px; }
+      .quick-tags {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-left: 4px;
+        scrollbar-width: none;
+      }
+      .quick-tags::-webkit-scrollbar { display: none; }
+
+      /* Hero mobile refinement */
+      .hero-wrap { margin: 12px 0 18px; }
+      .munich-main, .hero-salon, .hero-apple, .bento-vault {
+        padding: 20px 16px;
+        gap: 16px;
+        text-align: left;
+      }
+      .munich-main h1, .hero-salon h1, .hero-apple h1, .bento-vault h1 {
+        font-size: 22px;
+        line-height: 1.18;
+      }
+      .munich-main p, .hero-salon p, .hero-apple p, .bento-vault p {
+        font-size: 13px;
+        margin-bottom: 14px;
+      }
+      .salon-quote { font-size: 14.5px; margin: 10px 0 14px; }
+      .hero-3d-wrap .book-3d {
+        width: 136px;
+        height: 202px;
+        margin: 4px auto;
+      }
+      .hero-3d-wrap .cov-title { font-size: 16px; }
+      .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .btn-primary, .btn-ghost {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 11px 14px;
+        font-size: 12.5px;
+      }
+      .audio-bar-preview {
+        flex-wrap: wrap;
+        padding: 10px 12px;
+      }
+
+      /* Top 6 horizontal touch-snap carousel on mobile */
+      .sec-head h2 { font-size: 18.5px; }
+      .sec-head p { font-size: 12px; }
+      .top6-strip {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+      }
+      .top6-strip::-webkit-scrollbar { display: none; }
+      .top-rank-card {
+        min-width: 235px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+      }
+
+      /* Filter bar mobile 2-col */
+      .filter-toolbar { padding: 10px 12px; }
+      .filter-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .f-select { width: 100%; font-size: 12px; }
+
+      /* 2-Column Native App Book Grid on Mobile */
+      .book-grid,
+      html[data-theme="salon"] .book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+      }
+      .book-card,
+      html[data-theme="salon"] .book-card,
+      html[data-theme="bento"] .book-card:nth-child(4n+1) {
+        flex-direction: column !important;
+        grid-column: span 1 !important;
+        border-radius: 14px;
+      }
+      .card-3d-wrap,
+      html[data-theme="salon"] .card-3d-wrap,
+      html[data-theme="bento"] .book-card:nth-child(4n+1) .card-3d-wrap {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 176px !important;
+        padding: 10px 6px !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+      .card-3d-wrap .book-3d {
+        width: 96px;
+        height: 142px;
+      }
+      .card-3d-wrap .cov-title { font-size: 11.5px; }
+      .card-3d-wrap .cov-author { font-size: 8px; }
+      .card-3d-wrap .cov-pub { font-size: 7px; }
+      .card-3d-wrap .cov-ornament { width: 24px; height: 24px; }
+      .tag-lang, .tag-badge {
+        font-size: 9px;
+        padding: 2px 6px;
+        top: 7px;
+      }
+      .tag-lang { left: 7px; }
+      .tag-badge { right: 7px; }
+      .peek-btn {
+        font-size: 9.5px;
+        padding: 3px 8px;
+        bottom: 6px;
+        right: 6px;
+      }
+      .card-info {
+        padding: 10px;
+        gap: 8px;
+      }
+      .pub-line { font-size: 9.5px; }
+      .b-title { font-size: 13px; line-height: 1.2; }
+      .b-author { font-size: 10.5px; margin-bottom: 4px; }
+      .b-desc, .isbn-pill { display: none; }
+      .de-ch-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      .de-ch-pill {
+        padding: 3px 6px;
+        font-size: 9.5px;
+      }
+      .card-bot {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        padding-top: 8px;
+      }
+      .p-now { font-size: 15.5px; }
+      .vat-note { font-size: 9px; }
+      .add-btn {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 11.5px;
+        text-align: center;
+      }
+
+      /* Bundle boxes, Author, Shipping table & Modals on mobile */
+      .bundle-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .bundle-card { padding: 16px; }
+      .bundle-card h3 { font-size: 15.5px; }
+      .author-spotlight { padding: 20px 16px; gap: 16px; margin: 22px 0; }
+      .author-spotlight h3 { font-size: 23px; }
+      .pub-strip { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .info-panel { padding: 16px 12px; overflow-x: auto; }
+      .ship-table { font-size: 11px; }
+      .ship-table th, .ship-table td { padding: 7px 6px; }
+
+      .modal-backdrop { padding: 10px; align-items: flex-end; }
+      .modal-box {
+        padding: 18px 14px;
+        border-radius: 20px 20px 14px 14px;
+        max-height: 88vh;
+      }
+      .modal-split-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .isbn-bot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Sticky Native Mobile Bottom App Bar */
+      .mobile-app-nav {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 64px;
+        background: rgba(15, 23, 42, 0.96);
+        backdrop-filter: saturate(180%) blur(16px);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        z-index: 2050;
+        padding: 4px 6px;
+        box-shadow: 0 -8px 28px rgba(0,0,0,0.35);
+      }
+      .m-nav-btn {
+        background: none;
+        border: none;
+        color: #94A3B8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        position: relative;
+      }
+      .m-nav-btn.active, .m-nav-btn:active {
+        color: #FFFFFF;
+      }
+      .m-nav-badge {
+        position: absolute;
+        top: 2px;
+        right: 14px;
+        background: var(--primary);
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+        padding: 1px 5px;
+        border-radius: 999px;
+      }
     }
   </style>
 </head>
@@ -1682,7 +2035,7 @@
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding-top:20px;color:#64748B;font-size:12px;flex-wrap:wrap;gap:10px">
         <span>© 2026 AvrupaKitap / EuroBuch GmbH. Tüm fiyatlara Almanya (%7) ve İsviçre (%2.6) indirimli kitap KDV'si (MwSt) dahildir.</span>
-        <span>O2IO Kurumsal E-Ticaret Mimarisi • 4 Ayrı Mimari Tema & 16 Renk Varyasyonu</span>
+        <span>o2io Kurumsal E-Ticaret Mimarisi • 4 Ayrı Mimari Tema & 16 Renk Varyasyonu</span>
       </div>
     </div>
   </footer>
@@ -1778,7 +2131,7 @@
       <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:16px">
         <h4 style="font-size:14.5px;font-weight:800;margin-bottom:6px">ISBN-13 Barkod ile Tek Tıkla Kitap & Kapak Çekme Botu</h4>
         <p style="font-size:12px;color:var(--muted);margin-bottom:10px">13 haneli ISBN numarasını okuttuğunuzda kitap adı, yazar, yayınevi, sayfa sayısı, gramaj, arka kapak yazısı ve yüksek çözünürlüklü kapak görseli otomatik doldurulur.</p>
-        <div style="display:grid;grid-template-columns:1fr 120px 120px auto;gap:8px">
+        <div class="isbn-bot-grid">
           <input class="inp" id="isbnBotInput" value="9789750802942 — Masumiyet Müzesi (Orhan Pamuk)" />
           <input class="inp" value="€ 15.90" />
           <input class="inp" value="CHF 17.50" />
@@ -1791,6 +2144,53 @@
       </div>
     </div>
   </div>
+
+  <!-- 16. MOBILE APP THEME STUDIO SHEET & STICKY BOTTOM APP BAR -->
+  <div class="mobile-theme-sheet" id="mobileThemeSheet">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <strong style="font-size:13px">Mobil Tema & Renk Stüdyosu (4 Stil × 4 Renk)</strong>
+      <button onclick="toggleMobileThemeSheet()" style="background:rgba(255,255,255,0.12);border:none;color:#fff;padding:4px 10px;border-radius:8px;font-size:11px">Kapat ✕</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+      <button class="t-btn active" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('munich', document.querySelectorAll('.theme-tabs .t-btn')[0]);toggleMobileThemeSheet()">1. Münih Mega-Store</button>
+      <button class="t-btn" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('salon', document.querySelectorAll('.theme-tabs .t-btn')[1]);toggleMobileThemeSheet()">2. Frankfurt Salonu</button>
+      <button class="t-btn" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('apple', document.querySelectorAll('.theme-tabs .t-btn')[2]);toggleMobileThemeSheet()">3. Cupertino 3D</button>
+      <button class="t-btn" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('bento', document.querySelectorAll('.theme-tabs .t-btn')[3]);toggleMobileThemeSheet()">4. Berlin Gece Bento</button>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12)">
+      <span style="font-size:12px;color:#94A3B8">Renk Paleti Seçin:</span>
+      <div style="display:flex;gap:10px">
+        <button class="p-dot" style="background:#991B1B;width:24px;height:24px" onclick="switchPalette('crimson', document.querySelectorAll('.palette-group .p-dot')[0])"></button>
+        <button class="p-dot" style="background:#065F46;width:24px;height:24px" onclick="switchPalette('emerald', document.querySelectorAll('.palette-group .p-dot')[1])"></button>
+        <button class="p-dot" style="background:#1E40AF;width:24px;height:24px" onclick="switchPalette('cobalt', document.querySelectorAll('.palette-group .p-dot')[2])"></button>
+        <button class="p-dot" style="background:#6B21A8;width:24px;height:24px" onclick="switchPalette('plum', document.querySelectorAll('.palette-group .p-dot')[3])"></button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mobile-app-nav" aria-label="Mobil Uygulama Menüsü">
+    <button class="m-nav-btn active" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Vitrin</span>
+    </button>
+    <button class="m-nav-btn" onclick="document.getElementById('catalogSec').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span>Katalog</span>
+    </button>
+    <button class="m-nav-btn" onclick="toggleMobileThemeSheet()" style="color:#FBBF24">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="8" r="1.5"/><circle cx="8" cy="12" r="1.5"/><circle cx="16" cy="12" r="1.5"/></svg>
+      <span>4 Tema</span>
+    </button>
+    <button class="m-nav-btn" onclick="openDrawer()">
+      <span class="m-nav-badge tabular" id="mCartCnt">2</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Sepetim</span>
+    </button>
+    <button class="m-nav-btn" onclick="openAdmin()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Yönetim</span>
+    </button>
+  </nav>
 
   <script>
     const BOOKS = [
@@ -2250,7 +2650,7 @@
           </div>
           <button class="util-btn" onclick="closeModal()">Kapat ✕</button>
         </div>
-        <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:center">
+        <div class="modal-split-grid">
           <div style="background:var(--surface-2);padding:24px;border-radius:16px;border:1px solid var(--border)">
             ${book3dHtml(b)}
           </div>
@@ -2259,11 +2659,11 @@
             <div class="reader-page">
               "${b.excerpt}"
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0" class="tabular">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:12px 0" class="tabular">
               <div class="inp"><strong>🇩🇪 Frankfurt Stok:</strong> ${b.deStock} Adet (DHL 1-2 Gün)</div>
               <div class="inp"><strong>🇨🇭 Zürih Stok:</strong> ${b.chStock} Adet (SwissPost Ertesi Gün)</div>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border)">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);flex-wrap:wrap;gap:10px">
               <div>
                 <span class="p-old tabular">${fmt(b.oldEur, b.chf + 3)}</span>
                 <span class="p-now tabular" style="font-size:26px">${fmt(b.eur, b.chf)}</span>
@@ -2276,6 +2676,10 @@
       document.getElementById('bookModal').classList.add('open');
     }
     function closeModal() { document.getElementById('bookModal').classList.remove('open'); }
+    function toggleMobileThemeSheet() {
+      const el = document.getElementById('mobileThemeSheet');
+      if (el) el.classList.toggle('open');
+    }
 
     function openTrackModal() { document.getElementById('trackModal').classList.add('open'); }
     function closeTrackModal() { document.getElementById('trackModal').classList.remove('open'); }
@@ -2292,7 +2696,10 @@
     }
 
     function refreshCart() {
-      document.getElementById('cartCnt').innerText = cart.reduce((s, i) => s + i.qty, 0);
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cartCnt').innerText = totalQty;
+      const mCnt = document.getElementById('mCartCnt');
+      if (mCnt) mCnt.innerText = totalQty;
       let e = 0, c = 0, w = 0;
       document.getElementById('cartItems').innerHTML = cart.map(item => {
         const b = BOOKS.find(x => x.id === item.id);

@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="cupertino" data-palette="amber">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proline Yapı — Alanya Dekorasyon, Tadilat Firması & Prefabrik Ev Sistemleri (4 Mimari Tema & 301 SEO Göç Önizlemesi)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F7F9;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --surface-3: #E2E8F0;
+      --glass: rgba(255, 255, 255, 0.88);
+      --text: #0F172A;
+      --text-2: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --primary: #D97706;
+      --primary-hover: #B45309;
+      --primary-soft: rgba(217, 119, 6, 0.12);
+      --accent: #0284C7;
+      --ok: #15803D;
+      --ok-soft: rgba(21, 128, 61, 0.12);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.04);
+      --shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.09);
+      --shadow-lg: 0 24px 48px -12px rgba(15, 23, 42, 0.16);
+      --font-head: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* 4 COLOR PALETTES (16 TOTAL VARIATIONS) */
+    html[data-palette="amber"]   { --primary: #D97706; --primary-hover: #B45309; --primary-soft: rgba(217, 119, 6, 0.12); --accent: #0284C7; }
+    html[data-palette="cobalt"]  { --primary: #1D4ED8; --primary-hover: #1E40AF; --primary-soft: rgba(29, 78, 216, 0.12); --accent: #D97706; }
+    html[data-palette="emerald"] { --primary: #047857; --primary-hover: #065F46; --primary-soft: rgba(4, 120, 87, 0.12); --accent: #B45309; }
+    html[data-palette="crimson"] { --primary: #B91C1C; --primary-hover: #991B1B; --primary-soft: rgba(185, 28, 28, 0.12); --accent: #0F172A; }
+
+    /* THEME 1: ALANYA MİMARİ PRESTİJ (Apple Cupertino Spatial Light) */
+    html[data-theme="cupertino"] {
+      --bg: #F5F6F8;
+      --surface: #FFFFFF;
+      --surface-2: #F1F5F9;
+      --surface-3: #E2E8F0;
+      --text: #0F172A;
+      --text-2: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --radius: 18px;
+      --radius-lg: 26px;
+    }
+
+    /* THEME 2: MÜHENDİSLİK & ŞANTİYE DARK BENTO (Linear / Raycast Obsidian) */
+    html[data-theme="bento"] {
+      --bg: #090C12;
+      --surface: #111622;
+      --surface-2: #171E2E;
+      --surface-3: #1F293D;
+      --glass: rgba(17, 22, 34, 0.9);
+      --text: #F8FAFC;
+      --text-2: #CBD5E1;
+      --muted: #94A3B8;
+      --border: #243046;
+      --radius: 18px;
+      --radius-lg: 24px;
+      --shadow: 0 20px 44px -10px rgba(0,0,0,0.65);
+    }
+    html[data-theme="bento"][data-palette="amber"]   { --primary: #F59E0B; --primary-hover: #D97706; --primary-soft: rgba(245, 158, 11, 0.16); }
+    html[data-theme="bento"][data-palette="cobalt"]  { --primary: #38BDF8; --primary-hover: #0284C7; --primary-soft: rgba(56, 189, 248, 0.16); }
+    html[data-theme="bento"][data-palette="emerald"] { --primary: #10B981; --primary-hover: #059669; --primary-soft: rgba(16, 185, 129, 0.16); }
+    html[data-theme="bento"][data-palette="crimson"] { --primary: #F43F5E; --primary-hover: #E11D48; --primary-soft: rgba(244, 63, 94, 0.16); }
+
+    /* THEME 3: AKDENİZ VİLLA & EDİTORYAL KATALOG (Architectural Digest Warm Stone) */
+    html[data-theme="editorial"] {
+      --bg: #FAF6EE;
+      --surface: #FFFDF9;
+      --surface-2: #F4EFE4;
+      --surface-3: #E9E0CE;
+      --glass: rgba(255, 253, 249, 0.92);
+      --text: #1C1917;
+      --text-2: #44403C;
+      --muted: #78716C;
+      --border: #E2D9C5;
+      --radius: 12px;
+      --radius-lg: 18px;
+      --font-head: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* THEME 4: HIZLI KEŞİF & M² HESAPLAMA PORTALI (Swiss Architectural Matrix) */
+    html[data-theme="swiss"] {
+      --bg: #EEF2F6;
+      --surface: #FFFFFF;
+      --surface-2: #F8FAFC;
+      --surface-3: #E2E8F0;
+      --text: #090D16;
+      --text-2: #1E293B;
+      --muted: #475569;
+      --border: #CBD5E1;
+      --radius: 10px;
+      --radius-lg: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    ::selection { background: var(--primary); color: #fff; }
+    html, body { overflow-x: hidden; max-width: 100vw; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      transition: background 0.3s var(--ease), color 0.3s var(--ease);
+      -webkit-font-smoothing: antialiased;
+    }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .container { max-width: 1320px; margin: 0 auto; padding: 0 22px; }
+
+    /* 1. STICKY STUDIO BAR */
+    .studio-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1200;
+      background: #090C12;
+      color: #F8FAFC;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    .studio-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .studio-left, .studio-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .studio-pill {
+      background: linear-gradient(135deg, #D97706, #EA580C);
+      color: #fff;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+    }
+    .theme-tabs {
+      display: flex;
+      background: rgba(255,255,255,0.06);
+      padding: 3px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      gap: 4px;
+    }
+    .t-btn {
+      border: none;
+      background: transparent;
+      color: #CBD5E1;
+      padding: 5px 11px;
+      border-radius: 7px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .t-btn.active { background: #fff; color: #090C12; }
+    .p-dot {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+    }
+    .p-dot.active { transform: scale(1.2); border-color: #fff; }
+    .admin-btn-top {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    /* 2. CORPORATE HEADER */
+    .site-header {
+      background: var(--glass);
+      backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      box-shadow: 0 8px 18px -4px var(--primary-soft);
+    }
+    .brand-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: block;
+      line-height: 1.05;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      display: block;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .nav-a {
+      background: transparent;
+      border: none;
+      color: var(--text-2);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .nav-a:hover, .nav-a.active { background: var(--primary-soft); color: var(--primary); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* 3. HERO STAGE (4 DISTINCT ARCHITECTURAL THEMES) */
+    .hero-wrap { margin: 22px 0 28px; }
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card h1 {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.4vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin: 10px 0 14px;
+    }
+    .hero-card p {
+      color: var(--text-2);
+      font-size: 14.5px;
+      margin-bottom: 22px;
+      max-width: 56ch;
+    }
+    .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .kpi-box strong { display: block; font-size: 22px; font-weight: 800; color: var(--primary); }
+    .kpi-box span { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+
+    /* Interactive Before/After Architectural Visualizer */
+    .ba-card {
+      background: linear-gradient(145deg, #0F172A 0%, #1E293B 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow-lg);
+    }
+    .ba-stage {
+      height: 225px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1E293B, #0F172A);
+      border: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: stretch;
+    }
+    .ba-before, .ba-after {
+      flex: 1;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ba-before {
+      background: linear-gradient(135deg, #334155 0%, #1E293B 100%);
+      border-right: 2px dashed rgba(255,255,255,0.35);
+    }
+    .ba-after {
+      background: linear-gradient(135deg, #78350F 0%, #B45309 50%, #0F172A 100%);
+    }
+    .ba-tag {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      align-self: flex-start;
+    }
+
+    /* 4. 4-STEP HOW WE WORK ("Nasıl Çalışıyoruz" from prolineyapi.com) */
+    .section-block { margin: 36px 0; }
+    .sec-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .sec-head h2 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .sec-head p { font-size: 13.5px; color: var(--muted); margin-top: 3px; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .step-card h3 { font-size: 15.5px; font-weight: 800; margin-bottom: 5px; }
+    .step-card p { font-size: 12.5px; color: var(--muted); }
+
+    /* 5. 8 REAL SERVICES GRID (Preserving prolineyapi.com URLs) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 18px;
+    }
+    html[data-theme="editorial"] .services-grid {
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    }
+    .srv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s var(--ease);
+    }
+    .srv-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .srv-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .srv-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .seo-slug {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: var(--surface-2);
+      color: var(--ok);
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      border-radius: 6px;
+    }
+    .srv-card h3 { font-size: 17px; font-weight: 800; margin: 8px 0 5px; }
+    .srv-card p { font-size: 13px; color: var(--text-2); }
+    .srv-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    /* 6. INTERACTIVE M2 RENOVATION & PREFABRIK CALCULATOR */
+    .calc-panel {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 24px;
+      box-shadow: var(--shadow);
+    }
+    .calc-result {
+      background: linear-gradient(145deg, #0F172A, #1E293B);
+      color: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .inp {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    /* 7. DELIVERED ALANYA PROJECTS & MIGRATED BLOG HUB */
+    .proj-grid, .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .proj-card, .blog-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .proj-visual {
+      height: 130px;
+      border-radius: 12px;
+      padding: 14px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-weight: 700;
+    }
+
+    /* 8. FOOTER & MODALS */
+    .site-footer {
+      background: #090C12;
+      color: #CBD5E1;
+      padding: 40px 0 28px;
+      margin-top: 44px;
+      font-size: 13px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 12, 18, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      max-width: 880px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 26px;
+      box-shadow: var(--shadow-lg);
+    }
+    .seo-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .seo-table th, .seo-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    /* NATIVE MOBILE APP BOTTOM BAR & THEME SHEET */
+    .mobile-app-nav { display: none; }
+    .mobile-theme-sheet {
+      display: none;
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 74px;
+      background: #0F172A;
+      color: #F8FAFC;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 20px;
+      padding: 16px;
+      z-index: 2100;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.65);
+    }
+    .mobile-theme-sheet.open { display: block; }
+
+    @media (max-width: 960px) {
+      .hero-card, .calc-panel, .steps-grid, .proj-grid, .blog-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      body { padding-bottom: 80px; }
+      .container { padding: 0 14px; }
+      .studio-bar { padding: 6px 10px; }
+      .studio-inner { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+      .studio-inner::-webkit-scrollbar { display: none; }
+      .studio-pill { display: none; }
+      .theme-tabs { flex-wrap: nowrap; }
+      .t-btn { font-size: 11px; padding: 5px 9px; }
+
+      .site-header { padding: 10px 0; }
+      .brand-mark { width: 38px; height: 38px; font-size: 17px; }
+      .brand-title { font-size: 18.5px; }
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-a { white-space: nowrap; font-size: 12px; padding: 6px 10px; }
+
+      .hero-wrap { margin: 12px 0 18px; }
+      .hero-card { padding: 20px 16px; gap: 18px; }
+      .hero-card h1 { font-size: 23px; line-height: 1.16; }
+      .hero-card p { font-size: 13px; margin-bottom: 14px; }
+      .cta-row { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; text-align: center; }
+      .ba-stage { height: 190px; }
+
+      /* Touch-snap 4-step strip on mobile */
+      .steps-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+      .steps-grid::-webkit-scrollbar { display: none; }
+      .step-card { min-width: 230px; scroll-snap-align: start; flex-shrink: 0; }
+
+      /* 2-Column Mobile App Service Cards */
+      .services-grid,
+      html[data-theme="editorial"] .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+      }
+      .srv-card { padding: 12px; gap: 10px; border-radius: 14px; }
+      .srv-icon { width: 34px; height: 34px; border-radius: 9px; }
+      .seo-slug { display: none; }
+      .srv-card h3 { font-size: 13.5px; line-height: 1.22; margin: 4px 0; }
+      .srv-card p { font-size: 11.5px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      .srv-meta { flex-direction: column; align-items: stretch; gap: 6px; padding-top: 8px; font-size: 10.5px; }
+
+      .calc-panel { padding: 18px 14px; gap: 16px; }
+      .modal-backdrop { padding: 10px; align-items: flex-end; }
+      .modal-box { padding: 18px 14px; border-radius: 20px 20px 14px 14px; max-height: 88vh; }
+
+      .mobile-app-nav {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 64px;
+        background: rgba(9, 12, 18, 0.96);
+        backdrop-filter: saturate(180%) blur(16px);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        z-index: 2050;
+        padding: 4px 6px;
+        box-shadow: 0 -8px 28px rgba(0,0,0,0.35);
+      }
+      .m-nav-btn {
+        background: none;
+        border: none;
+        color: #94A3B8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        font-size: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .m-nav-btn.active, .m-nav-btn:active { color: #fff; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. STICKY STUDIO BAR (4 ARCHITECTURAL THEMES + 16 PALETTES + 301 SEO MIGRATION ADMIN) -->
+  <div class="studio-bar">
+    <div class="studio-inner">
+      <div class="studio-left">
+        <span class="studio-pill">PROLİNE YAPI ÖZEL YAZILIM • 4 TEMA & 301 SEO GÖÇ MOTORU</span>
+        <div class="theme-tabs">
+          <button class="t-btn active" onclick="switchTheme('cupertino', this)">1. Alanya Mimari Prestij (Light)</button>
+          <button class="t-btn" onclick="switchTheme('bento', this)">2. Mühendislik Dark Bento</button>
+          <button class="t-btn" onclick="switchTheme('editorial', this)">3. Akdeniz Villa Katalog</button>
+          <button class="t-btn" onclick="switchTheme('swiss', this)">4. Hızlı Keşif & M² Portalı</button>
+        </div>
+      </div>
+      <div class="studio-right">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="color:#94A3B8">Renk:</span>
+          <button class="p-dot active" style="background:#D97706" onclick="switchPalette('amber', this)"></button>
+          <button class="p-dot" style="background:#1D4ED8" onclick="switchPalette('cobalt', this)"></button>
+          <button class="p-dot" style="background:#047857" onclick="switchPalette('emerald', this)"></button>
+          <button class="p-dot" style="background:#B91C1C" onclick="switchPalette('crimson', this)"></button>
+        </div>
+        <button class="admin-btn-top" onclick="openAdmin()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Yönetim Paneli & WordPress 301 Aktarım Tablosu
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CORPORATE HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <span class="brand-title">PROLİNE YAPI</span>
+          <span class="brand-sub">Alanya Dekorasyon • Tadilat • Taahhüt • Prefabrik Ev Sistemleri</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-a active" onclick="window.scrollTo({top:0,behavior:'smooth'})">Ana Sayfa</button>
+        <button class="nav-a" onclick="document.getElementById('srvSec').scrollIntoView({behavior:'smooth'})">Hizmetlerimiz (8 Branş)</button>
+        <button class="nav-a" onclick="document.getElementById('calcSec').scrollIntoView({behavior:'smooth'})">M² Tadilat & Prefabrik Hesapla</button>
+        <button class="nav-a" onclick="document.getElementById('projSec').scrollIntoView({behavior:'smooth'})">Teslim Edilen Projeler</button>
+        <button class="nav-a" onclick="document.getElementById('blogSec').scrollIntoView({behavior:'smooth'})">Blog & Rehber (301 SEO)</button>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn-primary" onclick="document.getElementById('calcSec').scrollIntoView({behavior:'smooth'})">Ücretsiz Keşif & Teklif Al →</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 3. HERO STAGE -->
+    <div class="hero-wrap">
+      <div class="hero-card">
+        <div>
+          <span class="studio-pill" style="display:inline-block">ALANYA MERKEZLİ ANAHTAR TESLİM TADİLAT & PREFABRİK YAPI GÜVENCESİ</span>
+          <h1>Zamanınız da, Hayalleriniz de Bize Emanet!</h1>
+          <p>Alanya ve çevresinde komple daire/villa tadilatı, anahtar teslim prefabrik & çelik ev kurulumu, izolasyon, özel mutfak-banyo mobilyası, asma tavan, seramik ve boya uygulamalarını sözleşmeli sabit fiyat ve gününde teslim garantisiyle gerçekleştiriyoruz.</p>
+          <div class="cta-row">
+            <button class="btn-primary" onclick="document.getElementById('calcSec').scrollIntoView({behavior:'smooth'})">M² Maliyet & Süre Hesapla</button>
+            <button class="btn-outline" onclick="openAdmin()">WordPress 301 SEO Göç Raporunu Gör</button>
+          </div>
+          <div class="kpi-row tabular">
+            <div class="kpi-box"><strong>340+</strong><span>Teslim Edilen Proje</span></div>
+            <div class="kpi-box"><strong>99/100</strong><span>Google PageSpeed Hız</span></div>
+            <div class="kpi-box"><strong>%100</strong><span>Sözleşmeli Gün Garantisi</span></div>
+            <div class="kpi-box"><strong>0 Hata</strong><span>Çerezsiz Temiz Altyapı</span></div>
+          </div>
+        </div>
+
+        <div class="ba-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <strong style="font-size:13.5px">Öncesi & Sonrası: Alanya Oba 3+1 Villa Dönüşümü</strong>
+            <span style="font-size:11px;color:#34D399;font-weight:700">42 Günde Anahtar Teslim</span>
+          </div>
+          <div class="ba-stage">
+            <div class="ba-before">
+              <span class="ba-tag" style="background:rgba(0,0,0,0.45)">ÖNCESİ (Eski Yapı)</span>
+              <div>
+                <div style="font-size:13px;font-weight:700">Yıpranmış Tesisat & Seramik</div>
+                <div style="font-size:11px;color:#CBD5E1">Nemli duvarlar, eski doğrama ve karanlık tavan</div>
+              </div>
+            </div>
+            <div class="ba-after">
+              <span class="ba-tag" style="background:#10B981;color:#052E16">SONRASI (Proline Yapı)</span>
+              <div>
+                <div style="font-size:13.5px;font-weight:800">Modern Lake Mutfak & LED Tavan</div>
+                <div style="font-size:11px;color:#FEF3C7">60x120 Porselen Seramik, Tam İzolasyon & Akıllı Aydınlatma</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#CBD5E1">
+            <span>✓ 2 Yıl İşçilik & Malzeme Garantisi</span>
+            <span>✓ Ücretsiz 3D Mimari Çizim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. NASIL ÇALIŞIYORUZ (4 STEPS FROM PROLINEYAPI.COM) -->
+    <section class="section-block">
+      <div class="sec-head">
+        <div>
+          <h2>Nasıl Çalışıyoruz? — 4 Adımda Sıfır Sürprizli Teslimat</h2>
+          <p>Alanya'daki tüm tadilat, dekorasyon ve prefabrik yapı projelerimizde şeffaf mühendislik takvimi uyguluyoruz</p>
+        </div>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num tabular">01</div>
+          <h3>Ücretsiz Keşif & Röleve</h3>
+          <p>Alanya genelinde adresinize gelerek lazer ölçüm yapıyor, ihtiyaçlarınızı dinliyor ve malzeme alternatiflerini yerinde belirliyoruz.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num tabular">02</div>
+          <h3>Sözleşme & Sabit Fiyat</h3>
+          <p>Kullanılacak tüm malzeme markalarını, iş kalemlerini ve net teslim tarihini resmi sözleşmeyle güvence altına alıyoruz.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num tabular">03</div>
+          <h3>Uzman Ekiple Uygulama</h3>
+          <p>Yalıtım, tesisat, alçı, boya, seramik, asma tavan ve özel mobilya etaplarını kendi kadrolu ustalarımızla titizlikle yürütüyoruz.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num tabular">04</div>
+          <h3>Kontrol ve Teslimat</h3>
+          <p>Tüm kalite kontrollerini ve ince temizliği tamamlayarak mekanınızı söz verilen günde anahtar teslim olarak size sunuyoruz.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 8 REAL SERVICES FROM PROLINEYAPI.COM (100% URL PARITY) -->
+    <section class="section-block" id="srvSec">
+      <div class="sec-head">
+        <div>
+          <h2>Alanya Tadilat, Dekorasyon & Prefabrik Yapı Hizmetlerimiz</h2>
+          <p>Mevcut WordPress sitenizdeki tüm hizmet sayfaları 301 SEO link yapısı korunarak yeni hızlı mimariye aktarılmıştır</p>
+        </div>
+      </div>
+      <div class="services-grid" id="srvGrid"></div>
+    </section>
+
+    <!-- 6. INTERACTIVE M2 COST & DURATION CALCULATOR -->
+    <section class="section-block" id="calcSec">
+      <div class="calc-panel">
+        <div>
+          <span class="studio-pill" style="display:inline-block;margin-bottom:8px">CANLI KEŞİF & MALİYET SİHİRBAZI</span>
+          <h2 style="font-size:24px;font-weight:800;margin-bottom:6px">Tadilat veya Prefabrik Ev Projenizi Hemen Hesaplayın</h2>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Hizmet türünü ve yaklaşık metrekareyi seçin; tahmini uygulama süresini ve paket kapsamını anında görün.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+            <div>
+              <label style="font-size:12px;font-weight:700;display:block;margin-bottom:5px">Hizmet / Proje Türü:</label>
+              <select class="inp" id="calcType" onchange="updateCalc()">
+                <option value="tadilat">Komple Ev & Villa Tadilatı (Anahtar Teslim)</option>
+                <option value="prefabrik">Alanya Prefabrik Ev & Çelik Yapı Kurulumu</option>
+                <option value="mutfak">Mutfak, Banyo & Seramik Yenileme</option>
+                <option value="boya">Boya, Saten Alçı, Asma Tavan & İzolasyon</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:700;display:block;margin-bottom:5px">Malzeme & İşçilik Segmenti:</label>
+              <select class="inp" id="calcTier" onchange="updateCalc()">
+                <option value="1">Standart A+ Kalite (TSE Garantili)</option>
+                <option value="1.28" selected>Lüks Mimari Seri (Özel Tasarım)</option>
+                <option value="1.55">VIP Villa Konsepti (İthal Seri)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px">
+              <span>Uygulama Alanı (Metrekare):</span>
+              <strong id="m2Val" style="color:var(--primary)" class="tabular">110 m²</strong>
+            </div>
+            <input type="range" id="m2Range" min="35" max="260" value="110" oninput="updateCalc()" style="width:100%;accent-color:var(--primary)" />
+          </div>
+        </div>
+
+        <div class="calc-result tabular">
+          <div>
+            <span style="font-size:11px;color:#38BDF8;font-weight:700;text-transform:uppercase">PROLİNE YAPI ÖN KEŞİF ÖZETİ</span>
+            <h3 id="calcTitle" style="font-size:20px;font-weight:800;margin:6px 0">110 m² Komple Ev & Villa Tadilatı</h3>
+            <p id="calcScope" style="font-size:12.5px;color:#CBD5E1">Su/elektrik tesisatı, 60x120 seramik, lake mutfak & banyo mobilyası, asma tavan, saten alçı ve silinebilir boya dahil.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;background:rgba(255,255,255,0.06);padding:12px;border-radius:12px">
+            <div>
+              <span style="font-size:11px;color:#94A3B8;display:block">Tahmini Teslim Süresi</span>
+              <strong id="calcDays" style="font-size:19px;color:#34D399">28 – 35 İş Günü</strong>
+            </div>
+            <div>
+              <span style="font-size:11px;color:#94A3B8;display:block">Keşif & 3D Planlama</span>
+              <strong style="font-size:19px;color:#FBBF24">ÜCRETSİZ</strong>
+            </div>
+          </div>
+          <button class="btn-primary" style="width:100%;justify-content:center" onclick="alert('Alanya Ücretsiz Keşif talebiniz oluşturuldu! WhatsApp hattımız üzerinden anında uzman ekibimize yönlendiriliyorsunuz.')">WhatsApp'tan Ücretsiz Keşif Randevusu Al →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. DELIVERED ALANYA PROJECTS -->
+    <section class="section-block" id="projSec">
+      <div class="sec-head">
+        <div>
+          <h2>Alanya'da Teslim Ettiğimiz Seçili Projeler</h2>
+          <p>Oba, Mahmutlar, Kestel, Cikcilli, Konaklı ve Demirtaş'ta tamamladığımız anahtar teslim uygulamalar</p>
+        </div>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-visual" style="background:linear-gradient(135deg,#0F172A,#B45309)">
+            <span style="font-size:11px;opacity:0.85">ALANYA OBA • ANAHTAR TESLİM VİLLA</span>
+            <div style="font-size:17px">Oba Zeytinlik 4+1 Dubleks Villa Komple Tadilat & Mobilya</div>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Özel ada mutfak, ıslak hacim su yalıtımı, 60x120 granit seramik, gizli LED asma tavan ve dış cephe ısı yalıtımı.</p>
+        </div>
+        <div class="proj-card">
+          <div class="proj-visual" style="background:linear-gradient(135deg,#065F46,#0F172A)">
+            <span style="font-size:11px;opacity:0.85">ALANYA KESTEL • PREFABRİK EV</span>
+            <div style="font-size:17px">Kestel 125 m² Çift Katlı A+ Çelik & Prefabrik Konut</div>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Temel betonu, A1 yanmaz dış cephe kaplama, antrasit ısıcamlı doğrama, çatı izolasyonu ve anahtar teslim iç dekorasyon.</p>
+        </div>
+        <div class="proj-card">
+          <div class="proj-visual" style="background:linear-gradient(135deg,#1E3A8A,#0F172A)">
+            <span style="font-size:11px;opacity:0.85">ALANYA MAHMUTLAR • DAİRE YENİLEME</span>
+            <div style="font-size:17px">Mahmutlar Sahil 2+1 Rezidans Komple Yenileme</div>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Banyo-mutfak kırım ve yenileme, saten alçı, İtalyan dekoratif boya, lake iç kapılar ve özel giyinme odası dolabı.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. MIGRATED BLOG & SEO ARTICLES ("Yazılar" from prolineyapi.com) -->
+    <section class="section-block" id="blogSec">
+      <div class="sec-head">
+        <div>
+          <h2>Alanya Dekorasyon, Tadilat & Prefabrik Ev Rehberi (Blog)</h2>
+          <p>Mevcut WordPress sitenizdeki tüm blog yazıları, görseller ve kategoriler (%100 SEO URL uyumuyla) yeni sisteme aktarılmıştır</p>
+        </div>
+        <button class="btn-outline" onclick="openAdmin()">Tüm 301 SEO Eşleşmelerini İncele</button>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div>
+            <span class="seo-slug">/category/alanya-dekorasyon/</span>
+            <h3 style="font-size:16.5px;font-weight:800;margin:8px 0 6px">Alanya Ev Tadilatı ve Dekorasyonunda 2026 Maliyet & Malzeme Rehberi</h3>
+            <p style="font-size:12.5px;color:var(--muted)">Nemli Akdeniz ikliminde doğru boya, su yalıtımı, seramik ve lake mobilya seçimiyle evinizin değerini nasıl ikiye katlarsınız?</p>
+          </div>
+          <div style="font-size:11.5px;color:var(--primary);font-weight:700">✓ WordPress'ten Kayıpsız Aktarıldı • 0.2sn Açılış</div>
+        </article>
+        <article class="blog-card">
+          <div>
+            <span class="seo-slug">/category/alanya-prefabrik-ev/</span>
+            <h3 style="font-size:16.5px;font-weight:800;margin:8px 0 6px">Alanya'da Anahtar Teslim Prefabrik Ev Kurulum Süreci ve İmar Detayları</h3>
+            <p style="font-size:12.5px;color:var(--muted)">Arsa keşfinden zemin betonuna, ısı yalıtımlı duvar panellerinden anahtar teslim iç dekorasyona kadar prefabrik yapı aşamaları.</p>
+          </div>
+          <div style="font-size:11.5px;color:var(--primary);font-weight:700">✓ WordPress'ten Kayıpsız Aktarıldı • 0.2sn Açılış</div>
+        </article>
+        <article class="blog-card">
+          <div>
+            <span class="seo-slug">/category/ev-tadilati/</span>
+            <h3 style="font-size:16.5px;font-weight:800;margin:8px 0 6px">Teras, Çatı ve Islak Hacimlerde Kalıcı Su & Isı İzolasyonu Nasıl Yapılır?</h3>
+            <p style="font-size:12.5px;color:var(--muted)">Kış yağmurları ve yaz sıcaklarına karşı Alanya'daki binalarda uyguladığımız garantili poliüretan ve kristalize yalıtım çözümleri.</p>
+          </div>
+          <div style="font-size:11.5px;color:var(--primary);font-weight:700">✓ WordPress'ten Kayıpsız Aktarıldı • 0.2sn Açılış</div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. CORPORATE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="color:#fff;font-size:16px;display:block;margin-bottom:8px">PROLİNE YAPI • Alanya Tadilat & Prefabrik</strong>
+          <p style="color:#94A3B8;line-height:1.6">Alanya ve çevresinde anahtar teslim ev tadilatı, dekorasyon, izolasyon, özel mobilya ve prefabrik yapı sistemlerinde güvenilir çözüm ortağınız.</p>
+        </div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:8px">Hizmet URL Yapısı (SEO Korunmuş)</strong>
+          <div style="display:flex;flex-direction:column;gap:5px;color:#94A3B8;font-size:12px">
+            <span>/hizmetler/ev-tadilati/</span>
+            <span>/hizmetler/alanya-prefabrik-yapilar/</span>
+            <span>/hizmetler/izolasyon-yalitim/</span>
+            <span>/hizmetler/mobilya/ & /asma-tavan/</span>
+          </div>
+        </div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:8px">Blog Kategorileri</strong>
+          <div style="display:flex;flex-direction:column;gap:5px;color:#94A3B8;font-size:12px">
+            <span>/category/alanya-dekorasyon/</span>
+            <span>/category/ev-tadilati/</span>
+            <span>/category/alanya-prefabrik-ev/</span>
+            <span>/hakkimizda/ & /sss/</span>
+          </div>
+        </div>
+        <div>
+          <strong style="color:#fff;display:block;margin-bottom:8px">Alanya Merkez İletişim</strong>
+          <p style="color:#94A3B8;font-size:12.5px">Alanya / Antalya — Ücretsiz Keşif Hattı<br>WhatsApp & Telefon: 0543 976 15 41</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding-top:18px;font-size:12px;color:#64748B;flex-wrap:wrap;gap:8px">
+        <span>© 2026 Proline Yapı (www.prolineyapi.com). Tüm hakları saklıdır.</span>
+        <span>o2io Özel Kurumsal Web Yazılımı • 0 Çerez/Önbellek Hatası • 99/100 PageSpeed</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. ADMIN PANEL & WORDPRESS 301 SEO MIGRATION ENGINE MODAL -->
+  <div class="modal-backdrop" id="adminModal" onclick="if(event.target===this)closeAdmin()">
+    <div class="modal-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:14px">
+        <div>
+          <span class="studio-pill">PROLİNE YAPI YÖNETİM PANELİ & WORDPRESS GÖÇ MOTORU</span>
+          <h3 style="font-size:19px;font-weight:800;margin-top:4px">Kayıpsız WordPress İçerik Aktarımı, 301 SEO Koruma & Hız Yönetimi</h3>
+        </div>
+        <button class="btn-outline" onclick="closeAdmin()">Kapat ✕</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:16px" class="tabular">
+        <div style="background:var(--surface-2);padding:12px;border-radius:12px;border:1px solid var(--border)">
+          <span style="font-size:11px;color:var(--muted)">Google PageSpeed Skoru</span>
+          <strong style="display:block;font-size:20px;color:var(--ok)">99 / 100</strong>
+          <span style="font-size:11px;color:var(--muted)">WordPress Hantallığı Giderildi</span>
+        </div>
+        <div style="background:var(--surface-2);padding:12px;border-radius:12px;border:1px solid var(--border)">
+          <span style="font-size:11px;color:var(--muted)">Aktarılan Sayfa & Yazı</span>
+          <strong style="display:block;font-size:20px">100% Tamam</strong>
+          <span style="font-size:11px;color:var(--ok)">0 Kırık Link (404 Yok)</span>
+        </div>
+        <div style="background:var(--surface-2);padding:12px;border-radius:12px;border:1px solid var(--border)">
+          <span style="font-size:11px;color:var(--muted)">Çerez / Cache Bozulması</span>
+          <strong style="display:block;font-size:20px;color:var(--ok)">%0 (Çözüldü)</strong>
+          <span style="font-size:11px;color:var(--muted)">Temiz Statik+Dinamik Mimari</span>
+        </div>
+      </div>
+
+      <h4 style="font-size:14px;font-weight:800;margin-bottom:6px">Mevcut www.prolineyapi.com -> Yeni Özel Yazılım Birebir URL & SEO Eşleşme Tablosu</h4>
+      <div style="overflow-x:auto">
+        <table class="seo-table tabular">
+          <thead>
+            <tr>
+              <th>Mevcut WordPress URL</th>
+              <th>Yeni Özel Yazılım URL</th>
+              <th>Görsel & Meta</th>
+              <th>Durum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>/hizmetler/ev-tadilati/</td><td>/hizmetler/ev-tadilati/</td><td>Başlık + H1 + Görseller</td><td style="color:var(--ok);font-weight:700">✓ Birebir Korundu</td></tr>
+            <tr><td>/hizmetler/alanya-prefabrik-yapilar/</td><td>/hizmetler/alanya-prefabrik-yapilar/</td><td>Başlık + H1 + Görseller</td><td style="color:var(--ok);font-weight:700">✓ Birebir Korundu</td></tr>
+            <tr><td>/hizmetler/izolasyon-yalitim/</td><td>/hizmetler/izolasyon-yalitim/</td><td>Başlık + H1 + Görseller</td><td style="color:var(--ok);font-weight:700">✓ Birebir Korundu</td></tr>
+            <tr><td>/hizmetler/mobilya/ & /asma-tavan/</td><td>/hizmetler/mobilya/ & /asma-tavan/</td><td>Başlık + H1 + Görseller</td><td style="color:var(--ok);font-weight:700">✓ Birebir Korundu</td></tr>
+            <tr><td>/hizmetler/alanya-seramik/ & /alanya-boya/</td><td>/hizmetler/alanya-seramik/ & /alanya-boya/</td><td>Başlık + H1 + Görseller</td><td style="color:var(--ok);font-weight:700">✓ Birebir Korundu</td></tr>
+            <tr><td>/yazilar/ & /category/alanya-dekorasyon/</td><td>/yazilar/ & /category/alanya-dekorasyon/</td><td>Tüm Blog Yazıları & Etiketler</td><td style="color:var(--ok);font-weight:700">✓ Kayıpsız Aktarıldı</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. MOBILE APP THEME SHEET & STICKY BOTTOM BAR -->
+  <div class="mobile-theme-sheet" id="mobileThemeSheet">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+      <strong style="font-size:13px">4 Farklı Tasarım & 16 Renk Seçeneği</strong>
+      <button onclick="toggleMobileThemeSheet()" style="background:rgba(255,255,255,0.12);border:none;color:#fff;padding:4px 10px;border-radius:8px;font-size:11px">Kapat ✕</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+      <button class="t-btn active" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('cupertino', document.querySelectorAll('.theme-tabs .t-btn')[0]);toggleMobileThemeSheet()">1. Alanya Prestij</button>
+      <button class="t-btn" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('bento', document.querySelectorAll('.theme-tabs .t-btn')[1]);toggleMobileThemeSheet()">2. Dark Bento</button>
+      <button class="t-btn" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('editorial', document.querySelectorAll('.theme-tabs .t-btn')[2]);toggleMobileThemeSheet()">3. Villa Katalog</button>
+      <button class="t-btn" style="background:rgba(255,255,255,0.12);text-align:left;padding:8px 10px" onclick="switchTheme('swiss', document.querySelectorAll('.theme-tabs .t-btn')[3]);toggleMobileThemeSheet()">4. M² Keşif Portalı</button>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:8px;border-top:1px solid rgba(255,255,255,0.12)">
+      <span style="font-size:12px;color:#94A3B8">Kurumsal Renk Paleti:</span>
+      <div style="display:flex;gap:10px">
+        <button class="p-dot" style="background:#D97706;width:24px;height:24px" onclick="switchPalette('amber', document.querySelectorAll('.studio-right .p-dot')[0])"></button>
+        <button class="p-dot" style="background:#1D4ED8;width:24px;height:24px" onclick="switchPalette('cobalt', document.querySelectorAll('.studio-right .p-dot')[1])"></button>
+        <button class="p-dot" style="background:#047857;width:24px;height:24px" onclick="switchPalette('emerald', document.querySelectorAll('.studio-right .p-dot')[2])"></button>
+        <button class="p-dot" style="background:#B91C1C;width:24px;height:24px" onclick="switchPalette('crimson', document.querySelectorAll('.studio-right .p-dot')[3])"></button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mobile-app-nav" aria-label="Mobil Menü">
+    <button class="m-nav-btn active" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      <span>Vitrin</span>
+    </button>
+    <button class="m-nav-btn" onclick="document.getElementById('srvSec').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Hizmetler</span>
+    </button>
+    <button class="m-nav-btn" onclick="toggleMobileThemeSheet()" style="color:#FBBF24">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="8" r="1.5"/><circle cx="8" cy="12" r="1.5"/><circle cx="16" cy="12" r="1.5"/></svg>
+      <span>4 Tema</span>
+    </button>
+    <button class="m-nav-btn" onclick="document.getElementById('calcSec').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
+      <span>M² Hesapla</span>
+    </button>
+    <button class="m-nav-btn" onclick="openAdmin()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>301 Panel</span>
+    </button>
+  </nav>
+
+  <script>
+    const SERVICES = [
+      {
+        title: "Ev Tadilatı & Anahtar Teslim Dekorasyon",
+        slug: "/hizmetler/ev-tadilati/",
+        desc: "Alanya'da daire ve villalarınız için kırım, sıhhi/elektrik tesisat yenileme, mutfak, banyo, zemin ve aydınlatma dahil A'dan Z'ye anahtar teslim tadilat.",
+        badge: "Anahtar Teslim"
+      },
+      {
+        title: "Alanya Prefabrik Ev & Çelik Yapı Sistemleri",
+        slug: "/hizmetler/alanya-prefabrik-yapilar/",
+        desc: "Depreme dayanıklı, yüksek ısı ve ses yalıtımlı, tek katlı veya dubleks prefabrik ve hafif çelik villaların temel dahil anahtar teslim kurulumu.",
+        badge: "Prefabrik & Çelik"
+      },
+      {
+        title: "İzolasyon ve Su / Isı Yalıtımı",
+        slug: "/hizmetler/izolasyon-yalitim/",
+        desc: "Teras, çatı, temel, ıslak hacim ve dış cephelerde nem, rutubet ve ısı kaybını %100 kesen garantili poliüretan ve kristalize yalıtım uygulamaları.",
+        badge: "Garantili Yalıtım"
+      },
+      {
+        title: "Özel Ölçü Mutfak, Banyo & Sabit Mobilya",
+        slug: "/hizmetler/mobilya/",
+        desc: "1. sınıf MDF-Lam, lake ve akrilik kapaklı özel tasarım mutfak dolabı, banyo dolabı, vestiyer, giyinme odası ve TV ünitesi üretimi ve montajı.",
+        badge: "Özel Üretim"
+      },
+      {
+        title: "Asma Tavan, Gergi Tavan & LED Sistemleri",
+        slug: "/hizmetler/asma-tavan/",
+        desc: "Neme dayanıklı yeşil alçıpan, gizli ışık bantlı havuz tavan, akustik tavan ve modern spot/LED aydınlatma uygulamaları.",
+        badge: "Modern Tavan"
+      },
+      {
+        title: "Alanya Seramik, Granit & Fayans Uygulaması",
+        slug: "/hizmetler/alanya-seramik/",
+        desc: "Banyo, mutfak, salon, teras ve havuz kenarları için 60x120 büyük ebat porselen seramik, granit ve mermer döşeme işçiliği.",
+        badge: "Lazer Terazi"
+      },
+      {
+        title: "Alanya Boya & Dekoratif İtalyan Boya",
+        slug: "/hizmetler/alanya-boya/",
+        desc: "Silinebilir antibakteriyel iç cephe boyası, güneş ışınlarına dayanıklı silikonlu dış cephe boyası ve dekoratif İtalyan boya uygulamaları.",
+        badge: "İç & Dış Cephe"
+      },
+      {
+        title: "Alçı, Saten Alçı & Duvar Örme",
+        slug: "/hizmetler/alci-saten/",
+        desc: "Pürüzsüz yüzeyler için kaba/saten alçı, alçıpan bölme duvar, tuğla/gazbeton duvar örme ve dekoratif niş çalışmaları.",
+        badge: "Kusursuz Yüzey"
+      }
+    ];
+
+    function renderServices() {
+      document.getElementById('srvGrid').innerHTML = SERVICES.map(s => `
+        <article class="srv-card">
+          <div>
+            <div class="srv-top">
+              <div class="srv-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span class="seo-slug">${s.slug}</span>
+            </div>
+            <h3>${s.title}</h3>
+            <p>${s.desc}</p>
+          </div>
+          <div class="srv-meta">
+            <span style="color:var(--primary);font-weight:700">● ${s.badge}</span>
+            <button class="btn-outline" style="padding:6px 12px;font-size:11.5px" onclick="document.getElementById('calcSec').scrollIntoView({behavior:'smooth'})">Keşif & Fiyat Al →</button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function updateCalc() {
+      const m2 = Number(document.getElementById('m2Range').value);
+      const type = document.getElementById('calcType').value;
+      document.getElementById('m2Val').innerText = m2 + ' m²';
+
+      const map = {
+        tadilat: {
+          title: `${m2} m² Komple Ev & Villa Tadilatı`,
+          scope: 'Su/elektrik tesisatı, 60x120 seramik, lake mutfak & banyo mobilyası, asma tavan, saten alçı ve silinebilir boya dahil.',
+          days: Math.max(15, Math.round(m2 * 0.26)) + ' – ' + Math.max(20, Math.round(m2 * 0.32)) + ' İş Günü'
+        },
+        prefabrik: {
+          title: `${m2} m² Anahtar Teslim Prefabrik / Çelik Ev`,
+          scope: 'Zemin betonu, A1 yanmaz fibercement cephe, yüksek ısı/ses yalıtımı, çatı, seramik, mutfak/banyo dolapları ve boya dahil.',
+          days: Math.max(25, Math.round(m2 * 0.35)) + ' – ' + Math.max(32, Math.round(m2 * 0.42)) + ' İş Günü'
+        },
+        mutfak: {
+          title: `${m2} m² Mutfak, Banyo & Seramik Yenileme`,
+          scope: 'Özel ölçü lake/akrilik dolaplar, çimstone/porselen tezgah, su yalıtımı, vitrifiye ve 1. sınıf seramik döşeme dahil.',
+          days: '10 – 16 İş Günü'
+        },
+        boya: {
+          title: `${m2} m² Boya, Saten Alçı, Asma Tavan & İzolasyon`,
+          scope: 'Fileli saten alçı, gizli LED asma tavan, teras/ıslak hacim izolasyonu ve antibakteriyel silinebilir boya dahil.',
+          days: '7 – 12 İş Günü'
+        }
+      }[type];
+
+      document.getElementById('calcTitle').innerText = map.title;
+      document.getElementById('calcScope').innerText = map.scope;
+      document.getElementById('calcDays').innerText = map.days;
+    }
+
+    function switchTheme(t, btn) {
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('.theme-tabs .t-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+
+    function switchPalette(p, btn) {
+      document.documentElement.setAttribute('data-palette', p);
+      document.querySelectorAll('.studio-right .p-dot').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+
+    function openAdmin() { document.getElementById('adminModal').classList.add('open'); }
+    function closeAdmin() { document.getElementById('adminModal').classList.remove('open'); }
+    function toggleMobileThemeSheet() {
+      const el = document.getElementById('mobileThemeSheet');
+      if (el) el.classList.toggle('open');
+    }
+
+    renderServices();
+    updateCalc();
+  </script>
+</body>
+</html>
