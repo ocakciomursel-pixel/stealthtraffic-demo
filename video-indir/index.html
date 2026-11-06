@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClipPulse Pro — Filigransız Reels, TikTok, YouTube & X Video İndirme Scripti (4 Tema + 16 Palet)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090A0F;
+      --bg-elev: #121521;
+      --bg-card: rgba(20, 24, 38, 0.85);
+      --text: #F5F7FF;
+      --text-muted: #949EC2;
+      --accent: #FF3366;
+      --accent-2: #7C3AED;
+      --accent-soft: rgba(255, 51, 102, 0.14);
+      --border: rgba(255, 255, 255, 0.09);
+      --radius: 18px;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.65);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.55;
+      transition: background 0.35s ease, color 0.35s ease;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* TOP ARCHITECTURAL SWITCHER */
+    .studio-bar {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      background: rgba(9, 10, 15, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 20px;
+      color: #F8FAFC;
+    }
+    .studio-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .studio-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .studio-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 10px;
+      border-radius: 99px;
+      background: rgba(255, 51, 102, 0.18);
+      color: #FF6B8B;
+      border: 1px solid rgba(255, 51, 102, 0.35);
+      font-weight: 600;
+    }
+    .theme-btn {
+      background: rgba(255,255,255,0.06);
+      color: #CBD5E1;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 7px 13px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .theme-btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .theme-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px -4px var(--accent);
+    }
+    .palette-group {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.05);
+      padding: 5px 11px;
+      border-radius: 99px;
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+    .palette-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.25);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .palette-dot.active {
+      transform: scale(1.22);
+      border-color: #fff;
+    }
+
+    /* HEADER */
+    .site-header {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 8px 22px -6px var(--accent);
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      display: block;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .pill-btn {
+      background: var(--bg-elev);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 9px 15px;
+      border-radius: 11px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+    }
+    .pill-btn:hover { border-color: var(--accent); }
+    .pill-btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* MAIN CONTAINER */
+    .main-wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 28px 24px 80px;
+    }
+
+    /* INPUT BAR */
+    .dl-box {
+      background: var(--bg-elev);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      box-shadow: var(--shadow);
+      transition: border-color 0.25s ease;
+    }
+    .dl-box:focus-within {
+      border-color: var(--accent);
+    }
+    .dl-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 15.5px;
+      padding: 12px 14px;
+      outline: none;
+      font-family: var(--font-sans);
+    }
+    .dl-paste-btn {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 11px 15px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .dl-submit-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 13px;
+      font-weight: 800;
+      font-size: 14.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      box-shadow: 0 10px 26px -6px var(--accent);
+    }
+
+    .sample-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .sample-chip {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .sample-chip:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* 3D FLOATING PHONE MOCKUP */
+    .phone-3d-scene {
+      perspective: 1200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-3d-body {
+      width: 285px;
+      height: 510px;
+      border-radius: 36px;
+      background: linear-gradient(160deg, #1E2436, #0D101A);
+      border: 4px solid rgba(255,255,255,0.18);
+      box-shadow: -24px 30px 65px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+      transform: rotateY(-16deg) rotateX(7deg);
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+    .phone-3d-body:hover {
+      transform: rotateY(-4deg) rotateX(2deg) translateY(-6px);
+    }
+    .phone-notch {
+      width: 96px;
+      height: 22px;
+      background: #06080D;
+      border-radius: 99px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #94A3B8;
+      font-family: var(--font-mono);
+    }
+    .phone-video-preview {
+      flex: 1;
+      margin: 12px 0;
+      border-radius: 22px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .phone-badge-float {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(9, 10, 15, 0.78);
+      backdrop-filter: blur(8px);
+      padding: 5px 10px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #34D399;
+      border: 1px solid rgba(52,211,153,0.4);
+    }
+    .waveform-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 24px;
+      margin-top: 8px;
+    }
+    .waveform-bar {
+      flex: 1;
+      background: var(--accent);
+      border-radius: 99px;
+      animation: pulseWave 1.2s infinite ease-in-out alternate;
+    }
+    @keyframes pulseWave {
+      0% { height: 25%; opacity: 0.55; }
+      100% { height: 100%; opacity: 1; }
+    }
+
+    /* ADSENSE SLOT PREVIEW */
+    .ad-slot {
+      border: 1.5px dashed var(--border);
+      background: var(--bg-elev);
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 22px 0;
+    }
+    .ad-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* RESULT CARD */
+    .result-panel {
+      margin-top: 26px;
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .result-thumb {
+      width: 100%;
+      height: 270px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .format-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 13px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .format-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ADMIN DRAWER */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      display: none;
+      justify-content: flex-end;
+    }
+    .drawer-backdrop.open { display: flex; }
+    .drawer-panel {
+      width: min(680px, 95vw);
+      background: #0F131F;
+      color: #F8FAFC;
+      height: 100%;
+      overflow-y: auto;
+      padding: 28px;
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+
+    @media (max-width: 920px) {
+      .result-panel { grid-template-columns: 1fr; }
+      .dl-box { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP ARCHITECTURAL THEME & PALETTE SWITCHER -->
+  <div class="studio-bar">
+    <div class="studio-inner">
+      <div class="studio-left">
+        <span class="studio-tag">4 FARKLI MİMARİ DÜNYA + 16 RENK PALETİ</span>
+        <button class="theme-btn active" onclick="setWorld(0)" id="worldBtn0">1. Raycast Neon 3D</button>
+        <button class="theme-btn" onclick="setWorld(1)" id="worldBtn1">2. Apple Cupertino Glass</button>
+        <button class="theme-btn" onclick="setWorld(2)" id="worldBtn2">3. Linear Precision Bento</button>
+        <button class="theme-btn" onclick="setWorld(3)" id="worldBtn3">4. Stripe Editorial AdSense</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="palette-group" id="paletteMount"></div>
+        <button class="theme-btn" style="background:#10B981;color:#052E16;border-color:#10B981;font-weight:800;" onclick="toggleAdmin(true)">
+          ⚙️ Yönetim & AdSense Paneli
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <a href="#" class="brand" onclick="return false;">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <div>
+        <span class="brand-title">ClipPulse Pro</span>
+        <span class="brand-sub">Reels • TikTok • YouTube 4K • X Filigransız Video İndirici</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <span class="pill-btn" onclick="loadSample(0)">📸 Instagram Reels</span>
+      <span class="pill-btn" onclick="loadSample(1)">🎵 TikTok Filigransız</span>
+      <span class="pill-btn" onclick="loadSample(2)">▶️ YouTube 4K & MP3</span>
+      <span class="pill-btn" onclick="loadSample(3)">🐦 X / Twitter HD</span>
+      <button class="pill-btn primary" onclick="toggleAdmin(true)">Reklam & Proxy Paneli</button>
+    </div>
+  </header>
+
+  <!-- DYNAMIC ARCHITECTURAL MOUNT -->
+  <main class="main-wrap">
+    <div id="worldStage"></div>
+
+    <!-- TOP ADSENSE SLOT -->
+    <div class="ad-slot" id="adSlotBanner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="ad-badge">ADSENSE HEADER 728x90</span>
+        <div>
+          <div style="font-weight:700;font-size:13.5px;">Yüksek TBM Otomatik Reklam Alanı (Yönetim Panelinden Tek Tıkla Kod Eklenir)</div>
+          <div style="font-size:12px;color:var(--text-muted);">Google AdSense, Özel Banner veya Doğrudan Sponsorlu Link Desteği</div>
+        </div>
+      </div>
+      <button class="pill-btn" onclick="toggleAdmin(true)">Reklam Kodunu Düzenle</button>
+    </div>
+
+    <!-- INTERACTIVE PARSED RESULT STAGE -->
+    <div id="resultMount"></div>
+  </main>
+
+  <!-- ADMIN PANEL DRAWER -->
+  <div class="drawer-backdrop" id="adminBackdrop" onclick="if(event.target===this)toggleAdmin(false)">
+    <div class="drawer-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:16px;margin-bottom:20px;">
+        <div>
+          <span class="studio-tag">TAM YETKİLİ YÖNETİM PANELİ</span>
+          <h2 style="font-size:22px;margin-top:6px;">ClipPulse Pro — Sistem & AdSense Yönetimi</h2>
+        </div>
+        <button class="theme-btn" onclick="toggleAdmin(false)">✕ Kapat</button>
+      </div>
+
+      <div style="display:grid;gap:16px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px;">
+          <h3 style="font-size:15px;margin-bottom:8px;color:#34D399;">💰 1. Google AdSense & Özel Reklam Alanları</h3>
+          <p style="font-size:12.5px;color:#94A3B8;margin-bottom:12px;">İndirme butonu üstü, sonuç kartı altı ve sayfa içi native reklam kodlarını buradan anında güncelleyebilirsiniz.</p>
+          <label style="font-size:12px;color:#CBD5E1;display:block;margin-bottom:5px;">Üst Banner (728x90 / Responsive) AdSense Kodu:</label>
+          <textarea style="width:100%;height:68px;background:#080B12;border:1px solid rgba(255,255,255,0.14);border-radius:9px;color:#E2E8F0;padding:10px;font-family:var(--font-mono);font-size:12px;">&lt;ins class="adsbygoogle" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="1029384756"&gt;&lt;/ins&gt;</textarea>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px;">
+          <h3 style="font-size:15px;margin-bottom:8px;color:#60A5FA;">⚡ 2. FFmpeg Motoru & IPv6 Proxy Havuzu</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;">
+            <div style="background:#080B12;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#94A3B8;font-size:11px;">Instagram / TikTok Filigransız API</div>
+              <div style="font-weight:700;color:#34D399;margin-top:3px;">● Aktif (0.38 sn Yanıt)</div>
+            </div>
+            <div style="background:#080B12;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#94A3B8;font-size:11px;">YouTube 1080p/4K Ses+Görüntü Muxer</div>
+              <div style="font-weight:700;color:#34D399;margin-top:3px;">● FFmpeg Stream Aktif</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px;">
+          <h3 style="font-size:15px;margin-bottom:8px;color:#F472B6;">🌍 3. Çok Dilli SEO & Otomatik Sayfa Oluşturucu</h3>
+          <p style="font-size:12.5px;color:#94A3B8;">Türkçe, İngilizce, Almanca, İspanyolca ve Arapça alt sayfalar (Instagram Reels İndir, TikTok Filigransız İndir, YouTube MP3 Dönüştürücü) otomatik Schema.org yapısıyla üretilir.</p>
+        </div>
+
+        <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);border-radius:14px;padding:18px;">
+          <h3 style="font-size:15px;margin-bottom:6px;color:#34D399;">🔑 4. Ürün Anahtarı & Sunucu Kurulum Garantisi</h3>
+          <p style="font-size:12.5px;color:#CBD5E1;">Lisans Anahtarı: <code style="color:#34D399;font-weight:700;">O2IO-CLIPPULSE-2026-FULL</code> — Kendi sunucunuzda canlı test edip hız ve indirme performansını doğruladıktan sonra açık kaynak teslim alabilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WORLDS = [
+      {
+        name: "Raycast Neon 3D",
+        fontDisplay: "'Plus Jakarta Sans', sans-serif",
+        radius: "18px",
+        palettes: [
+          { name: "Neon Crimson", bg: "#090A0F", elev: "#121521", text: "#F5F7FF", muted: "#949EC2", accent: "#FF3366", accent2: "#7C3AED", border: "rgba(255,255,255,0.09)" },
+          { name: "Cyber Emerald", bg: "#07110E", elev: "#0E1F1A", text: "#ECFDF5", muted: "#86EFAC", accent: "#10B981", accent2: "#06B6D4", border: "rgba(16,185,129,0.18)" },
+          { name: "Electric Cobalt", bg: "#080C18", elev: "#10182E", text: "#F0F6FF", muted: "#93C5FD", accent: "#3B82F6", accent2: "#6366F1", border: "rgba(59,130,246,0.2)" },
+          { name: "Solar Amber", bg: "#110D08", elev: "#1F170E", text: "#FFFBEB", muted: "#FCD34D", accent: "#F59E0B", accent2: "#EA580C", border: "rgba(245,158,11,0.2)" }
+        ]
+      },
+      {
+        name: "Apple Cupertino Glass",
+        fontDisplay: "'Plus Jakarta Sans', sans-serif",
+        radius: "24px",
+        palettes: [
+          { name: "Cupertino Daylight", bg: "#F5F5F7", elev: "#FFFFFF", text: "#1D1D1F", muted: "#6E6E73", accent: "#0071E3", accent2: "#5E5CE6", border: "rgba(0,0,0,0.09)" },
+          { name: "Alpine Rose", bg: "#FDF8F8", elev: "#FFFFFF", text: "#29181B", muted: "#7D5A60", accent: "#E11D48", accent2: "#9333EA", border: "rgba(225,29,72,0.14)" },
+          { name: "Titanium Mint", bg: "#F2FBF7", elev: "#FFFFFF", text: "#0F291E", muted: "#4B6B5C", accent: "#059669", accent2: "#0284C7", border: "rgba(5,150,105,0.14)" },
+          { name: "Space Black Pro", bg: "#000000", elev: "#141416", text: "#F5F5F7", muted: "#86868B", accent: "#2997FF", accent2: "#BF5AF2", border: "rgba(255,255,255,0.12)" }
+        ]
+      },
+      {
+        name: "Linear Precision Bento",
+        fontDisplay: "'Plus Jakarta Sans', sans-serif",
+        radius: "10px",
+        palettes: [
+          { name: "Linear Graphite", bg: "#0B0C0E", elev: "#14161A", text: "#EDEDEF", muted: "#8A8F98", accent: "#5E6AD2", accent2: "#26B5CE", border: "rgba(255,255,255,0.11)" },
+          { name: "Vercel Monochrome", bg: "#050505", elev: "#111111", text: "#FAFAFA", muted: "#888888", accent: "#0070F3", accent2: "#7928CA", border: "rgba(255,255,255,0.14)" },
+          { name: "Supabase Matrix", bg: "#0D1117", elev: "#161B22", text: "#F0F6FC", muted: "#8B949E", accent: "#3ECF8E", accent2: "#10B981", border: "rgba(62,207,142,0.2)" },
+          { name: "Nordic Slate Light", bg: "#F8FAFC", elev: "#FFFFFF", text: "#0F172A", muted: "#64748B", accent: "#4F46E5", accent2: "#0EA5E9", border: "rgba(15,23,42,0.1)" }
+        ]
+      },
+      {
+        name: "Stripe Editorial AdSense",
+        fontDisplay: "'Instrument Serif', serif",
+        radius: "16px",
+        palettes: [
+          { name: "Editorial Warmth", bg: "#FAF7F2", elev: "#FFFFFF", text: "#181512", muted: "#6B6257", accent: "#635BFF", accent2: "#EC4899", border: "rgba(24,21,18,0.1)" },
+          { name: "Gazette Crimson", bg: "#FCF9F5", elev: "#FFFFFF", text: "#1F1614", muted: "#735F5B", accent: "#DC2626", accent2: "#D97706", border: "rgba(220,38,38,0.15)" },
+          { name: "Botanical Press", bg: "#F4F8F4", elev: "#FFFFFF", text: "#132217", muted: "#4E6855", accent: "#15803D", accent2: "#0D9488", border: "rgba(21,128,61,0.15)" },
+          { name: "Midnight Edition", bg: "#0F1016", elev: "#181A24", text: "#F8FAFC", muted: "#94A3B8", accent: "#818CF8", accent2: "#F472B6", border: "rgba(255,255,255,0.1)" }
+        ]
+      }
+    ];
+
+    const SAMPLES = [
+      {
+        platform: "Instagram Reels",
+        url: "https://www.instagram.com/reel/C8x9LmNopQr/",
+        title: "Avrupa Sokak Kahvesi & Sinematik Kurgu Reels #keşfet",
+        author: "@visualstudio.tr",
+        duration: "00:38",
+        views: "412.8K Görüntülenme",
+        thumb: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=80",
+        formats: [
+          { label: "MP4 • 1080p60 Full HD", badge: "Filigransız", size: "14.2 MB" },
+          { label: "MP4 • 720p Hızlı İndir", badge: "Mobil Uyumlu", size: "6.8 MB" },
+          { label: "MP3 • 320kbps Orijinal Ses", badge: "Sadece Ses", size: "1.4 MB" },
+          { label: "JPG • HD Kapak Görseli", badge: "1080x1920", size: "480 KB" }
+        ]
+      },
+      {
+        platform: "TikTok Filigransız",
+        url: "https://www.tiktok.com/@techcreator/video/7392817263541",
+        title: "Masaüstü Kurulum & Minimalist Çalışma Odası Turu 2026",
+        author: "@techcreator",
+        duration: "00:52",
+        views: "1.2M Görüntülenme",
+        thumb: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=700&q=80",
+        formats: [
+          { label: "MP4 • 1080p (Logosuz / Filigransız)", badge: "En Çok İndirilen", size: "18.6 MB" },
+          { label: "MP4 • Orijinal Kaynak", badge: "HD", size: "19.1 MB" },
+          { label: "MP3 • 320kbps Viral Ses", badge: "Ses Dosyası", size: "1.9 MB" },
+          { label: "WEBP • Hareketli Kapak", badge: "Önizleme", size: "620 KB" }
+        ]
+      },
+      {
+        platform: "YouTube 4K & Shorts",
+        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        title: "İsviçre Alpleri 4K 60FPS Drone Sinematik Uçuş Görüntüleri",
+        author: "Alpine Cinema 4K",
+        duration: "03:24",
+        views: "2.9M Görüntülenme",
+        thumb: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=700&q=80",
+        formats: [
+          { label: "MP4 • 2160p 4K UHD (60fps)", badge: "Ultra HD", size: "142.0 MB" },
+          { label: "MP4 • 1080p Full HD", badge: "Hızlı Mux", size: "46.5 MB" },
+          { label: "MP3 • 320kbps Stüdyo Kalitesi", badge: "Ses Dönüştür", size: "7.8 MB" },
+          { label: "SRT • Türkçe & İngilizce Altyazı", badge: "Altyazı", size: "42 KB" }
+        ]
+      },
+      {
+        platform: "X / Twitter Video",
+        url: "https://x.com/designfeed/status/1849201928374",
+        title: "Yeni Nesil 3D Web Arayüz Animasyonları Tanıtım Videosu",
+        author: "@designfeed",
+        duration: "00:44",
+        views: "195K Görüntülenme",
+        thumb: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80",
+        formats: [
+          { label: "MP4 • 1080p Yüksek Bitrate", badge: "HD", size: "12.4 MB" },
+          { label: "MP4 • 720p Standart", badge: "Hızlı", size: "5.9 MB" },
+          { label: "MP3 • Ses Kaydı", badge: "Ses", size: "1.5 MB" },
+          { label: "GIF • Akıcı Döngü", badge: "Sosyal Medya", size: "3.2 MB" }
+        ]
+      }
+    ];
+
+    let curWorld = 0;
+    let curPalette = 0;
+    let curSample = 0;
+
+    function applyTokens() {
+      const w = WORLDS[curWorld];
+      const p = w.palettes[curPalette];
+      const r = document.documentElement.style;
+      r.setProperty('--bg', p.bg);
+      r.setProperty('--bg-elev', p.elev);
+      r.setProperty('--text', p.text);
+      r.setProperty('--text-muted', p.muted);
+      r.setProperty('--accent', p.accent);
+      r.setProperty('--accent-2', p.accent2);
+      r.setProperty('--border', p.border);
+      r.setProperty('--radius', w.radius);
+      r.setProperty('--font-display', w.fontDisplay);
+    }
+
+    function renderPalettes() {
+      const mount = document.getElementById('paletteMount');
+      const w = WORLDS[curWorld];
+      mount.innerHTML = w.palettes.map((p, idx) => `
+        <button class="palette-dot ${idx===curPalette?'active':''}" 
+                title="${p.name}"
+                style="background:linear-gradient(135deg, ${p.accent}, ${p.accent2})"
+                onclick="setPalette(${idx})"></button>
+      `).join('');
+    }
+
+    function renderWorldStage() {
+      const s = SAMPLES[curSample];
+      const mount = document.getElementById('worldStage');
+
+      if (curWorld === 0) {
+        // WORLD 1: Raycast Neon 3D Command Studio
+        mount.innerHTML = `
+          <div style="display:grid;grid-template-columns:1.25fr 0.9fr;gap:36px;align-items:center;padding:18px 0;">
+            <div>
+              <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:99px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:700;margin-bottom:16px;">
+                ⚡ 0.4 Saniyede Filigransız 1080p / 4K Çözümleme
+              </div>
+              <h1 style="font-family:var(--font-display);font-size:clamp(30px,4vw,48px);line-height:1.1;margin-bottom:14px;font-weight:800;">
+                Sosyal Medya Videolarını <span style="color:var(--accent);">Filigransız & Orijinal Kalitede</span> Anında İndirin.
+              </h1>
+              <p style="color:var(--text-muted);font-size:16px;margin-bottom:24px;max-width:600px;">
+                Instagram Reels, TikTok, YouTube Shorts/4K ve X videolarını bağlantı yapıştırarak saniyeler içinde MP4 veya 320kbps MP3 olarak kaydedin.
+              </p>
+              <div class="dl-box">
+                <input id="urlInput" class="dl-input" value="${s.url}" placeholder="Instagram, TikTok, YouTube veya X bağlantısını buraya yapıştırın..." />
+                <button class="dl-paste-btn" onclick="pasteDemo()">📋 Yapıştır</button>
+                <button class="dl-submit-btn" onclick="triggerParse()">🚀 Videoyu Çözümle</button>
+              </div>
+              <div class="sample-chips">
+                <span class="sample-chip" onclick="loadSample(0)">📸 Örnek Instagram Reels</span>
+                <span class="sample-chip" onclick="loadSample(1)">🎵 Örnek TikTok (Logosuz)</span>
+                <span class="sample-chip" onclick="loadSample(2)">▶️ Örnek YouTube 4K</span>
+                <span class="sample-chip" onclick="loadSample(3)">🐦 Örnek X / Twitter</span>
+              </div>
+            </div>
+
+            <div class="phone-3d-scene">
+              <div class="phone-3d-body">
+                <div class="phone-notch">1080p60 • HDR</div>
+                <div class="phone-video-preview" style="background-image:linear-gradient(to top, rgba(9,10,15,0.92), rgba(9,10,15,0.15)), url('${s.thumb}');">
+                  <div class="phone-badge-float">✓ Filigran Temizlendi</div>
+                  <div style="font-size:11.5px;color:#CBD5E1;font-weight:600;">${s.platform} • ${s.author}</div>
+                  <div style="font-size:14px;font-weight:800;margin:4px 0 8px;">${s.title}</div>
+                  <div class="waveform-bars">
+                    <div class="waveform-bar" style="animation-delay:0.1s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.3s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.2s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.5s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.15s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.4s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.25s"></div>
+                    <div class="waveform-bar" style="animation-delay:0.6s"></div>
+                  </div>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:#94A3B8;padding:0 4px;">
+                  <span>FFmpeg Direct Mux</span>
+                  <span style="color:#34D399;font-weight:700;">Hazır • ${s.duration}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (curWorld === 1) {
+        // WORLD 2: Apple Cupertino Centered Glass Studio
+        mount.innerHTML = `
+          <div style="text-align:center;max-width:860px;margin:0 auto;padding:24px 0 12px;">
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);">CUPERTINO MEDIA ENGINE • 4K HDR</span>
+            <h1 style="font-size:clamp(32px,4.5vw,52px);font-weight:800;letter-spacing:-0.03em;margin:10px 0 14px;">
+              Tek Bağlantı. Sıfır Filigran. Stüdyo Kalitesi.
+            </h1>
+            <p style="color:var(--text-muted);font-size:16.5px;margin-bottom:26px;">
+              Reklam karmaşası olmadan tüm sosyal medya videolarını cam berraklığında indirin.
+            </p>
+            <div class="dl-box" style="max-width:780px;margin:0 auto;">
+              <input id="urlInput" class="dl-input" value="${s.url}" />
+              <button class="dl-paste-btn" onclick="pasteDemo()">📋 Yapıştır</button>
+              <button class="dl-submit-btn" onclick="triggerParse()">İndirme Seçeneklerini Göster</button>
+            </div>
+            <div class="sample-chips" style="justify-content:center;margin-top:16px;">
+              <span class="sample-chip" onclick="loadSample(0)">Instagram Reels</span>
+              <span class="sample-chip" onclick="loadSample(1)">TikTok Filigransız</span>
+              <span class="sample-chip" onclick="loadSample(2)">YouTube 4K UHD</span>
+              <span class="sample-chip" onclick="loadSample(3)">X / Twitter</span>
+            </div>
+          </div>
+        `;
+      } else if (curWorld === 2) {
+        // WORLD 3: Linear Precision Technical Bento Grid
+        mount.innerHTML = `
+          <div style="display:grid;grid-template-columns:1.35fr 0.85fr;gap:18px;">
+            <div style="background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);padding:26px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+                <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--accent);font-weight:700;">[BENTO // STREAM_EXTRACTOR_V3]</span>
+                <span style="font-family:var(--font-mono);font-size:11.5px;color:#10B981;">● 99.98% UPTIME</span>
+              </div>
+              <h1 style="font-size:30px;font-weight:800;margin-bottom:10px;">Yüksek Hızlı Çoklu Platform Video Çözümleyici</h1>
+              <p style="color:var(--text-muted);font-size:14.5px;margin-bottom:20px;">Instagram, TikTok, YouTube, X, Facebook, Pinterest ve Vimeo akışlarını anlık ayrıştırır.</p>
+              <div class="dl-box">
+                <input id="urlInput" class="dl-input" value="${s.url}" />
+                <button class="dl-submit-btn" onclick="triggerParse()">Çözümle</button>
+              </div>
+              <div class="sample-chips">
+                <span class="sample-chip" onclick="loadSample(0)">Reels Test</span>
+                <span class="sample-chip" onclick="loadSample(1)">TikTok Test</span>
+                <span class="sample-chip" onclick="loadSample(2)">YouTube 4K Test</span>
+                <span class="sample-chip" onclick="loadSample(3)">X Video Test</span>
+              </div>
+            </div>
+            <div style="background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+              <div>
+                <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);">CANLI TELEMETRİ & SEO MOTORU</div>
+                <h3 style="font-size:18px;margin:8px 0 14px;">Sunucu & Proxy Durumu</h3>
+                <div style="display:grid;gap:9px;font-size:13px;">
+                  <div style="display:flex;justify-content:space-between;padding:8px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                    <span>TikTok Filigran Silici</span><strong style="color:#10B981;">Aktif (API v4)</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;padding:8px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                    <span>Instagram Reels Proxy</span><strong style="color:#10B981;">IPv6 Rotasyon</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;padding:8px 12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);">
+                    <span>AdSense TBM Yerleşimi</span><strong style="color:var(--accent);">4 Aktif Slot</strong>
+                  </div>
+                </div>
+              </div>
+              <button class="pill-btn primary" style="width:100%;justify-content:center;margin-top:14px;" onclick="toggleAdmin(true)">Yönetim Paneline Geç →</button>
+            </div>
+          </div>
+        `;
+      } else {
+        // WORLD 4: Stripe Editorial High-Converting AdSense Magazine
+        mount.innerHTML = `
+          <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:28px;align-items:center;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);padding:32px;">
+            <div>
+              <span style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:700;">EDİTORYAL YÜKSEK GELİRLİ VİDEO ARACI</span>
+              <h1 style="font-family:var(--font-display);font-size:clamp(36px,4.6vw,56px);font-weight:400;line-height:1.06;margin:10px 0 16px;">
+                Sosyal Medya Arşivinizi <em>Saniyeler İçinde</em> Yüksek Kalitede İndirin.
+              </h1>
+              <div class="dl-box" style="background:var(--bg);">
+                <input id="urlInput" class="dl-input" value="${s.url}" />
+                <button class="dl-submit-btn" onclick="triggerParse()">Videoyu Getir</button>
+              </div>
+              <div class="sample-chips">
+                <span class="sample-chip" onclick="loadSample(0)">Instagram Reels</span>
+                <span class="sample-chip" onclick="loadSample(1)">TikTok Logosuz</span>
+                <span class="sample-chip" onclick="loadSample(2)">YouTube 4K</span>
+                <span class="sample-chip" onclick="loadSample(3)">X / Twitter</span>
+              </div>
+            </div>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;">
+              <div class="ad-badge" style="display:inline-block;margin-bottom:8px;">ADSENSE NATIVE 300x250 YÜKSEK DÖNÜŞÜM</div>
+              <h4 style="font-size:16px;margin-bottom:6px;">Sponsorlu İçerik & AdSense Entegrasyonu Hazır</h4>
+              <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">Bu tema organik Google aramalarından gelen ziyaretçilerde en yüksek reklam tıklama oranını (CTR) sağlamak üzere tasarlanmıştır.</p>
+              <button class="pill-btn" onclick="toggleAdmin(true)">AdSense Ayarlarını Aç</button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function renderResult() {
+      const s = SAMPLES[curSample];
+      const mount = document.getElementById('resultMount');
+      mount.innerHTML = `
+        <div class="result-panel">
+          <img class="result-thumb" src="${s.thumb}" alt="${s.title}" />
+          <div>
+            <div style="display:flex;wrap:wrap;gap:8px;align-items:center;margin-bottom:8px;">
+              <span class="ad-badge" style="background:var(--accent);color:#fff;">${s.platform}</span>
+              <span style="font-size:13px;color:var(--text-muted);font-weight:600;">${s.author} • ⏱️ ${s.duration} • 👁️ ${s.views}</span>
+            </div>
+            <h2 style="font-size:21px;font-weight:800;margin-bottom:6px;">${s.title}</h2>
+            <p style="font-size:13px;color:var(--text-muted);">Aşağıdaki formatlardan birine tıklayarak filigransız indirmeyi başlatabilirsiniz:</p>
+
+            <div class="format-grid">
+              ${s.formats.map((f, i) => `
+                <div class="format-card" onclick="startDownload('${f.label}', '${f.size}', this)">
+                  <div>
+                    <div style="font-weight:700;font-size:13.5px;">${f.label}</div>
+                    <div style="font-size:11.5px;color:var(--text-muted);">${f.badge} • ${f.size}</div>
+                  </div>
+                  <span style="background:var(--accent);color:#fff;padding:7px 12px;border-radius:9px;font-size:12px;font-weight:700;">⬇ İndir</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <div id="dlStatusBox" style="margin-top:14px;display:none;padding:12px 16px;border-radius:11px;background:rgba(16,185,129,0.14);border:1px solid rgba(16,185,129,0.35);color:#10B981;font-weight:700;font-size:13.5px;"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function setWorld(idx) {
+      curWorld = idx;
+      curPalette = 0;
+      for (let i = 0; i < 4; i++) {
+        document.getElementById('worldBtn' + i).classList.toggle('active', i === idx);
+      }
+      applyTokens();
+      renderPalettes();
+      renderWorldStage();
+      renderResult();
+    }
+
+    function setPalette(idx) {
+      curPalette = idx;
+      applyTokens();
+      renderPalettes();
+    }
+
+    function loadSample(idx) {
+      curSample = idx;
+      renderWorldStage();
+      renderResult();
+    }
+
+    function pasteDemo() {
+      const next = (curSample + 1) % SAMPLES.length;
+      loadSample(next);
+    }
+
+    function triggerParse() {
+      const box = document.getElementById('dlStatusBox');
+      if (box) {
+        box.style.display = 'block';
+        box.innerHTML = '⚡ Video akışı FFmpeg motoruyla çözümlendi! Aşağıdan istediğiniz çözünürlüğü seçebilirsiniz.';
+      }
+    }
+
+    function startDownload(label, size, el) {
+      const box = document.getElementById('dlStatusBox');
+      if (box) {
+        box.style.display = 'block';
+        box.innerHTML = '⏳ <strong>' + label + ' (' + size + ')</strong> filigransız olarak hazırlanıyor... %100 Tamamlandı! (Canlı Sunucu Kurulumunda Doğrudan İndirme Başlar)';
+      }
+    }
+
+    function toggleAdmin(open) {
+      document.getElementById('adminBackdrop').classList.toggle('open', open);
+    }
+
+    setWorld(0);
+  </script>
+</body>
+</html>
